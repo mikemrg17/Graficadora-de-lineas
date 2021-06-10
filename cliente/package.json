@@ -1,0 +1,30 @@
+{
+  "name": "cliente",
+  "version": "1.0.0",
+  "description": "Cliente del graficador de lineas en React.js",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack --mode development",
+    "start": "webpack serve",
+    "build": "webpack --config=webpack.config.js"
+  },
+  "author": "Equipo 9",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.14.5",
+    "@babel/core": "^7.14.5",
+    "@babel/plugin-proposal-class-properties": "^7.14.5",
+    "@babel/preset-env": "^7.14.5",
+    "webpack": "^5.38.1",
+    "webpack-cli": "^4.7.2"
+  },
+  "dependencies": {
+    "@babel/preset-react": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "html-webpack-plugin": "^5.3.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "webpack-config": "^7.5.0",
+    "webpack-dev-server": "^3.11.2"
+  }
+}
