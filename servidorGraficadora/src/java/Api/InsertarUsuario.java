@@ -11,10 +11,15 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 /**
  *
@@ -27,20 +32,56 @@ public class InsertarUsuario extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        //Primero obtenemos el Objeto JSON que viene del cliente y lo transformamos a String
         String payloadRequest = getBody(request);
         System.out.println("Objeto es: " + payloadRequest);
+        
+        //Inicializamos el parser para transformar el String a JSONObject
+        JSONParser parser = new JSONParser();
+        
+        //Inicializamos el nuevo objeto json
+        JSONObject jsonUsuario = new JSONObject(); 
+        
+        //Parseamos el String a JSONObject y lo asignamos al JSONObject que lo almacenará
+        try {
+            jsonUsuario = (JSONObject) parser.parse(payloadRequest);
+        } catch (ParseException ex) {
+            Logger.getLogger(InsertarUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        System.out.println("Objeto JSON es: " + jsonUsuario);
+        
+        //Email
+        String email = (String) jsonUsuario.get("email");
+        System.out.println("El usuario es: " + email);
+        //Nombre
+        String nombre = (String) jsonUsuario.get("nombre");
+        System.out.println("El nombre es: " + nombre);
+        //Apellido
+        String apellido = (String) jsonUsuario.get("apellido");
+        System.out.println("El apellido es: " + apellido);
+        //Password
+        String password = (String) jsonUsuario.get("password");
+        System.out.println("La contraseña es: " + password);
+        
+        //Rol común
+        int rol = 2;
+        
         
         int row;
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            /*Connection db = DriverManager.getConnection("jdbc:mysql://localhost/crudjson","miguel", "1234");
-            PreparedStatement statement = db.prepareStatement("INSERT INTO tablajson(columnajson) VALUES(?)");
-            statement.setString(1, payloadRequest);
-            row = statement.executeUpdate();*/
+            Connection db = DriverManager.getConnection("jdbc:mysql://localhost/graficadoraDeLineas","miguel", "1234");
+            PreparedStatement statement = db.prepareStatement("INSERT INTO usuarios(email,nombre,apellido,password,idRol) VALUES(?,?,?,?,?)");
+            statement.setString(1, email);
+            statement.setString(2, nombre);
+            statement.setString(3, apellido);
+            statement.setString(4, password);
+            statement.setInt(5, rol);
+            row = statement.executeUpdate();
             System.out.println("Se insertó a la base de datos");
             
         } catch (Exception ex) {
-            System.out.println("No se pudo editar el registro");
+            System.out.println("No se pudo insertar el registro");
             ex.printStackTrace();
         }
         
