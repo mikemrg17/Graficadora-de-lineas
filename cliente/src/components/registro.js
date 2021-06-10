@@ -1,5 +1,5 @@
 import React from 'react';
-//import '../styles/registro.css';
+import '../styles/registro.css';
 import axios from 'axios';
 
 class Registro extends React.Component{
@@ -57,7 +57,7 @@ class Registro extends React.Component{
 
     render(){
         return (
-            <div className="mainContainer">
+            <div className="mainContainerR">
                 <h1 className="title">Registro</h1>
                 <form className="formRegistro" onSubmit={this.addUser}>
                     <input type="text" name="email" id="email" placeholder="Inserta tu email" classname="form-control mb-2" onChange={e=>this.handleEmailChange(e.target.value)}/>

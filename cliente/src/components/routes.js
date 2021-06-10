@@ -6,8 +6,6 @@ import {
 import Home from './home';
 import Registro from './registro';
 
-//<Route path="*" render={() => window.location.href = "/home"}/>
-
 const App = () => {
     return (
             <div>

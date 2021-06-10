@@ -1,0 +1,4 @@
+.mainContainerR{
+    display: flex;
+    flex-direction: column;
+}
