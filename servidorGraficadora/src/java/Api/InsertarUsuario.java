@@ -28,7 +28,7 @@ public class InsertarUsuario extends HttpServlet {
             throws ServletException, IOException {
         
         String payloadRequest = getBody(request);
-        System.out.println(payloadRequest);
+        System.out.println("Objeto es: " + payloadRequest);
         
         int row;
         try {
