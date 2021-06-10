@@ -5,10 +5,12 @@ module.exports = {
     entry: './src/index.js',
     output: {
         path: path.join(__dirname, 'dist'),
-        filename: 'main.js'
+        filename: 'main.js',
+        publicPath: '/'
     },
     devServer: {
-        port: 4000
+        port: 4000,
+        historyApiFallback: true
     },
     resolve: {
         extensions: ['.js','.jsx']
@@ -22,6 +24,10 @@ module.exports = {
                 use: {
                     loader: 'babel-loader'
                 }
+            },
+            {
+                test: /\.css$/,
+                use: ["style-loader", "css-loader"]
             }
         ]
     },
