@@ -10,7 +10,7 @@ const Home = () => {
             <hr />
             <div className="registro">
                 <div>¿No estás registrado?</div>
-                <Link to="/registro" className="button_slide slide_down">Registro</Link>
+                <Link to="/GraficadoraDeLineas/registro" className="button_slide slide_down">Registro</Link>
             </div>
         </div>
     )

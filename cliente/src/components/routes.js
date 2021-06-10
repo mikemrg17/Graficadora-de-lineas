@@ -1,26 +1,26 @@
 import React from "react";
 import {
-    BrowserRouter as Router,
     Switch,
     Route
 } from "react-router-dom";
 import Home from './home';
 import Registro from './registro';
 
+//<Route path="*" render={() => window.location.href = "/home"}/>
 
-function App(){
+const App = () => {
     return (
-            <Router>
+            <div>
                 <Switch>
-                    <Route exact path="/home">
+                    <Route exact path="/GraficadoraDeLineas/">
                         <Home />
                     </Route>
-                    <Route exact path="/registro">
+                    <Route exact path="/GraficadoraDeLineas/registro">
                         <Registro />
                     </Route>
-                    <Route path="*" render={() => window.location.href = "/home"}/>
+                    <Route path="*" render={() => window.location.href = "/GraficadoraDeLineas/"}/>
                 </Switch>
-            </Router>
+            </div>
     );
 }
 export default App;
