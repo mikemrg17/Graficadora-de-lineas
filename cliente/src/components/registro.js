@@ -2,6 +2,8 @@ import React from 'react';
 import '../styles/registro.css';
 import axios from 'axios';
 
+import history from './history';
+
 class Registro extends React.Component{
 
     state = {
@@ -20,6 +22,7 @@ class Registro extends React.Component{
         axios.post("http://localhost:8080/GraficadoraDeLineas/InsertarUsuario",this.state)
         .then(response => {
             console.log(response);
+            setTimeout(history.push('/GraficadoraDeLineas/userMainPage'),1000);
         })
         .catch(error => {
                 console.info(error);

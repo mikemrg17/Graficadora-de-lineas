@@ -1,0 +1,38 @@
+DROP DATABSE graficadoraDeLineas;
+
+CREATE DATABASE graficadoraDeLineas;
+
+USE graficadoraDeLineas;
+
+CREATE TABLE rol(
+    -> idRol TINYINT NOT NULL AUTO_INCREMENT,
+    -> rol varchar(13) NOT NULL,
+    -> PRIMARY KEY(idRol));
+
+INSERT INTO rol(rol) VALUES("Administrador");
+INSERT INTO rol(rol) VALUES("Comun");
+
+CREATE TABLE usuarios(
+    -> idUsuario TINYINT NOT NULL AUTO_INCREMENT,
+    -> email varchar(40) NOT NULL,
+    -> nombre varchar(15),
+    -> apellido varchar(15),
+    -> password varchar(30) NOT NULL,
+    -> idRol TINYINT,
+    -> PRIMARY KEY(idUsuario),
+    -> FOREIGN KEY (idRol) REFERENCES rol(idRol));
+
+INSERT INTO usuarios(email,nombre,apellido, password,idRol) VALUES("admin@gmail.com", "Administrador", "Administrador", "admin", 1);
+
+SELECT * FROM usuarios NATURAL JOIN rol;
+
+CREATE TABLE ejercicios(
+    -> idEjercicio INT NOT NULL AUTO_INCREMENT,
+    -> x1 FLOAT, 
+    -> y1 FLOAT,
+    -> x2 FLOAT,
+    -> y2 FLOAT, 
+    -> idUsuario TINYINT,
+    -> PRIMARY KEY(idEjercicio),
+    -> FOREIGN KEY (idUsuario) REFERENCES usuarios(idUsuario));
+

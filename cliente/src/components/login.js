@@ -2,6 +2,8 @@ import React from 'react';
 import '../styles/registro.css';
 import axios from 'axios';
 
+import history from './history';
+
 class Login extends React.Component{
 
     state = {
@@ -11,12 +13,14 @@ class Login extends React.Component{
 
     logUser = e => {
         e.preventDefault();
-        alert("Se iniciará sesion");
+        //alert("Se iniciará sesion");
         console.log("Objeto a pasar");
         console.log(this.state);
         axios.post("http://localhost:8080/GraficadoraDeLineas/IniciarSesion",this.state)
         .then(response => {
-            console.log(response);
+            console.log(`La información recibida es: ${response.data}`);
+
+            history.push('/GraficadoraDeLineas/userMainPage');
         })
         .catch(error => {
                 console.info(error);
