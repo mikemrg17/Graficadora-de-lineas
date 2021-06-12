@@ -4,6 +4,7 @@ import {
     Route
 } from "react-router-dom";
 import Home from './home';
+import Login from "./login";
 import Registro from './registro';
 
 const App = () => {
@@ -15,6 +16,9 @@ const App = () => {
                     </Route>
                     <Route exact path="/GraficadoraDeLineas/registro">
                         <Registro />
+                    </Route>
+                    <Route exact path="/GraficadoraDeLineas/login">
+                        <Login />
                     </Route>
                     <Route path="*" render={() => window.location.href = "/GraficadoraDeLineas/"}/>
                 </Switch>
