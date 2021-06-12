@@ -21,8 +21,13 @@ class Registro extends React.Component{
         console.log(this.state);
         axios.post("http://localhost:8080/GraficadoraDeLineas/InsertarUsuario",this.state)
         .then(response => {
-            console.log(response);
-            setTimeout(history.push('/GraficadoraDeLineas/userMainPage'),1000);
+            //console.log(`Objeto recibido: ${response.data}`);
+            let respuestaServer = response.data;
+            let cadenaSeparada = respuestaServer.split(",");
+            let idUsuario = cadenaSeparada[0];
+            console.log(`TIPO DE IDUSUARIO ES : ${typeof idUsuario}`); 
+            console.log(`IDUSUARIO ES : ${idUsuario}`);
+            history.push('/GraficadoraDeLineas/userMainPage');
         })
         .catch(error => {
                 console.info(error);

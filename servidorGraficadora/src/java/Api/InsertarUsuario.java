@@ -28,10 +28,16 @@ import org.json.simple.parser.ParseException;
 
 public class InsertarUsuario extends HttpServlet {
     
+    private PrintWriter out;
+    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        out = response.getWriter();
+        response.setContentType("application/json");
+        response.addHeader("Access-Control-Allow-Origin", "*");
+        StringBuilder json = new StringBuilder();
+            
         //Primero obtenemos el Objeto JSON que viene del cliente y lo transformamos a String
         String payloadRequest = getBody(request);
         System.out.println("Objeto es: " + payloadRequest);
@@ -69,6 +75,7 @@ public class InsertarUsuario extends HttpServlet {
         
         int row;
         try {
+            int contador=0;
             Class.forName("com.mysql.jdbc.Driver");
             Connection db = DriverManager.getConnection("jdbc:mysql://localhost/graficadoraDeLineas","miguel", "1234");
             PreparedStatement statement = db.prepareStatement("INSERT INTO usuarios(email,nombre,apellido,password,idRol) VALUES(?,?,?,?,?)");
@@ -80,12 +87,34 @@ public class InsertarUsuario extends HttpServlet {
             row = statement.executeUpdate();
             System.out.println("Se insertó a la base de datos");
             
+            
+            Statement s = db.createStatement();
+            ResultSet rs=s.executeQuery("SELECT * FROM usuarios WHERE email='"+email+"' AND nombre='"+nombre+"' AND apellido='"+apellido+"' AND password='"+password+"' AND idRol='"+rol+"';");
+            while(rs.next()){
+                int idUsuario = rs.getInt("idUsuario");
+                String emailUsuario = rs.getString("email");
+                String nombreUsuario = rs.getString("nombre");
+                String apellidoUsuario = rs.getString("apellido");
+                String passwordUsuario = rs.getString("password");
+                int rolUsuario = rs.getInt("idRol");
+                json.append(idUsuario);
+                json.append(",");
+                json.append(emailUsuario);
+                json.append(",");
+                json.append(nombreUsuario);
+                json.append(",");
+                json.append(apellidoUsuario);
+                json.append(",");
+                json.append(passwordUsuario);
+                json.append(",");
+                json.append(rolUsuario);
+            }
+            
         } catch (Exception ex) {
             System.out.println("No se pudo insertar el registro");
             ex.printStackTrace();
         }
-        
-        
+        out.write(json.toString());
     }
     
     public static String getBody(HttpServletRequest request) throws IOException {
