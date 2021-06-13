@@ -32,8 +32,8 @@ class AdminMainPage extends React.Component {
     const { data } = this.state;
     return (
       <div className="mainContainerR">
-        <div className="headerUserMainPage">This is a header</div>
-        <div className="contentUserMainPage">This is the content</div>
+        <div className="headerUserMainPage">Welcome: admin</div>
+        <div className="contentUserMainPage"></div>
         <Table striped bordered>
           <thead>
             <tr>
