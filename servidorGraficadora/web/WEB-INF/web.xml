@@ -16,6 +16,10 @@
         <servlet-name>EjerciciosUsuario</servlet-name>
         <servlet-class>Api.EjerciciosUsuario</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DatosUsuario</servlet-name>
+        <servlet-class>Api.DatosUsuario</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>java</servlet-name>
         <url-pattern>/java</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>EjerciciosUsuario</servlet-name>
         <url-pattern>/EjerciciosUsuario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DatosUsuario</servlet-name>
+        <url-pattern>/DatosUsuario</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
