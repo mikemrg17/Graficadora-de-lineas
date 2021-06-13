@@ -77,7 +77,7 @@ public class InsertarUsuario extends HttpServlet {
         try {
             int contador=0;
             Class.forName("com.mysql.jdbc.Driver");
-            Connection db = DriverManager.getConnection("jdbc:mysql://localhost/graficadoraDeLineas","root", "1234");
+            Connection db = DriverManager.getConnection("jdbc:mysql://localhost/graficadoraDeLineas","miguel", "1234");
             PreparedStatement statement = db.prepareStatement("INSERT INTO usuarios(email,nombre,apellido,password,idRol) VALUES(?,?,?,?,?)");
             statement.setString(1, email);
             statement.setString(2, nombre);

@@ -8,15 +8,21 @@ class Registro extends React.Component{
 
     state = {
         email: "",
-        nombre: "",
-        apellido: "",
+        nombre: "Anónimo",
+        apellido: "Anónimo",
         password: ""
     }
 
 
     addUser = e => {
         e.preventDefault();
-        alert("Se insertará el usuario ");
+
+        if (this.state.email == "" && this.state.password == "") {
+            alert("Debes de llenar mínimo el campo de email y de contraseña");
+        }else if(this.state.email == "" || this.state.password == ""){
+            alert("Debes de llenar mínimo el campo de email y de contraseña");
+        } else {
+            //alert("Se insertará el usuario ");
         console.log("Objeto a pasar");
         console.log(this.state);
         axios.post("http://localhost:8080/GraficadoraDeLineas/InsertarUsuario",this.state)
@@ -33,6 +39,7 @@ class Registro extends React.Component{
                 console.info(error);
                 console.log("Ha ocurrido un error al insertar el usuario");
         });
+        } 
     }
 
     handleEmailChange = (value) => {
@@ -68,12 +75,12 @@ class Registro extends React.Component{
             <div className="mainContainerR">
                 <h1 className="title">Registro</h1>
                 <form className="formRegistro" onSubmit={this.addUser}>
-                    <input type="text" name="email" id="email" placeholder="Inserta tu email" classname="form-control mb-2" onChange={e=>this.handleEmailChange(e.target.value)}/>
-                    <input type="text" name="nombre" id="nombre" placeholder="Inserta tu nombre" classname="form-control mb-2" onChange={e=>this.handleNameChange(e.target.value)}/>
-                    <input type="text" name="apellido" id="apellido" placeholder="Inserta tu apellido" classname="form-control mb-2" onChange={e=>this.handleApellidoChange(e.target.value)}/>
-                    <input type="text" name="password" id="password" placeholder="Inserta una contraseña" classname="form-control mb-2" onChange={e=>this.handlePasswordChange(e.target.value)}/>
-                    <div className="d-grid gap-2">
-                            <input type="Submit" className="secondary" value="Insertar"/>                                 
+                    <input type="text" name="email" id="email" placeholder="Inserta tu email" className="formInput" onChange={e=>this.handleEmailChange(e.target.value)}/>
+                    <input type="text" name="nombre" id="nombre" placeholder="Inserta tu nombre" className="formInput" onChange={e=>this.handleNameChange(e.target.value)}/>
+                    <input type="text" name="apellido" id="apellido" placeholder="Inserta tu apellido" className="formInput" onChange={e=>this.handleApellidoChange(e.target.value)}/>
+                    <input type="text" name="password" id="password" placeholder="Inserta una contraseña" className="formInput" onChange={e=>this.handlePasswordChange(e.target.value)}/>
+                    <div className="buttonDiv">
+                            <input type="Submit" className="button" value="Registrarme"/>                                 
                     </div>
                 </form>
             </div>

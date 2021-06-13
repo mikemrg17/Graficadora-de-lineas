@@ -1,4 +1,41 @@
 .mainContainerR{
+    margin: auto;
+    border-color: blue;
+    border: 2px solid;
+    width: 1392px;
+    height: 769px;
+}
+
+.title{
+    color: #AEB1B4;
+    margin: 1rem 1rem 1rem 1rem;
+    text-align: center;
+}
+
+.formRegistro{
     display: flex;
     flex-direction: column;
 }
+
+.formInput{
+    margin: auto;
+    width: 250px;
+    margin-top: 1rem;
+}
+
+.buttonDiv{
+    margin: auto;
+    margin-top: 2rem;
+    width: 100%;
+    text-align: center;
+}
+
+.button{
+    height: 40px;
+    color: white;
+    background-color: black;
+    border: transparent;
+    border-radius: 0.2rem;
+}
+  
+  

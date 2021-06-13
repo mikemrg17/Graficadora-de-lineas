@@ -23,12 +23,19 @@ class Login extends React.Component{
             let cadenaSeparada = respuestaServer.split(",");
             let idUsuario = cadenaSeparada[0];
             let idRol = cadenaSeparada[1];
-            let validacion = cadenaSeparada[2];
-            console.log(`TIPO DE IDUSUARIO ES : ${typeof idRol}`); 
-            console.log(`IDUSUARIO ES : ${idUsuario}`);
-            console.log(`USUARIO ES : ${idRol}`);
-            console.log(`VALIDACION ES : ${validacion}`);
-            history.push('/GraficadoraDeLineas/userMainPage');
+            let validacion = cadenaSeparada[2].toString();
+
+            if( idRol == 2 && validacion == "true"){
+                console.log(`TIPO DE IDUSUARIO ES : ${typeof idRol}`); 
+                console.log(`IDUSUARIO ES : ${idUsuario}`);
+                console.log(`USUARIO ES : ${idRol}`);
+                console.log(`VALIDACION ES : ${validacion}`);
+                history.push(`/GraficadoraDeLineas/userMainPage?id=${idUsuario}`);
+            }else if(idRol == 1 && validacion=="true"){
+                history.push(`/GraficadoraDeLineas/adminMainPage?id=${idUsuario}`);
+            }else{
+                alert("No puedes acceder al sistema, vuelve a intentar con otro usuario");
+            }
         })
         .catch(error => {
                 console.info(error);

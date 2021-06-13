@@ -7,6 +7,7 @@ import Home from './home';
 import Login from "./login";
 import Registro from './registro';
 import UserMainPage from "./userMainPage";
+import AdminMainPage from "./adminMainPage";
 
 const App = () => {
     return (
@@ -23,6 +24,9 @@ const App = () => {
                     </Route>
                     <Route exact path="/GraficadoraDeLineas/userMainPage">
                         <UserMainPage />
+                    </Route>
+                    <Route exact path="/GraficadoraDeLineas/adminMainPage">
+                        <AdminMainPage />
                     </Route>
                     <Route path="*" render={() => window.location.href = "/GraficadoraDeLineas/"}/>
                 </Switch>

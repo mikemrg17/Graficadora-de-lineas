@@ -12,6 +12,10 @@
         <servlet-name>IniciarSesion</servlet-name>
         <servlet-class>Api.IniciarSesion</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EjerciciosUsuario</servlet-name>
+        <servlet-class>Api.EjerciciosUsuario</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>java</servlet-name>
         <url-pattern>/java</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>IniciarSesion</servlet-name>
         <url-pattern>/IniciarSesion</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EjerciciosUsuario</servlet-name>
+        <url-pattern>/EjerciciosUsuario</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
