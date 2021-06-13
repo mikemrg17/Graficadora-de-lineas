@@ -30,10 +30,16 @@ import org.json.simple.parser.ParseException;
 
 public class IniciarSesion extends HttpServlet {
     
+    private PrintWriter out;
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        out = response.getWriter();
+        response.setContentType("application/json");
+        response.addHeader("Access-Control-Allow-Origin", "*");
+        StringBuilder json = new StringBuilder();
         
         //Se obtiene el JSON que viene del cliente y se pasa a String
         String payloadRequest = getBody(request);
@@ -65,16 +71,32 @@ public class IniciarSesion extends HttpServlet {
          //Rol común
         int rol = 2;
         System.out.println("El rol es: " + rol);
-
-        try {
-            if(validateUser(email,password)){
-                response.sendRedirect("https://www.google.com/");
-                System.out.println("Se inicio sesion exitosamente");
-            }   
-        } catch (Exception ex) {
+        
+        //Validacion de usuario
+        String res = validateUser(email,password);
+        System.out.println("La cadena es:" + res);
+        //Declaracion de un subcadena
+        String[] partres = res.split(",");   
+        System.out.println("La cadena separada 1 es:" + partres[0]);
+        System.out.println("La cadena separada 2 es:" + partres[1]);
+        System.out.println("La cadena separada 3 es:" + partres[2]);
+        
+        //try {
+            if(partres[2].equals("false")){
+                json.append(res);
+                
+                System.out.println("El json a enviar es:"+json.toString());
+                out.write(json.toString());
+                
+            }else { 
+                json.append(res);  
+                System.out.println("El json a enviar es:"+json.toString());
+                out.write(json.toString());           
+            }
+        /*} catch (Exception ex) {
             System.out.println("No se pudo iniciar sesion, intentelo mas tarde");
             ex.printStackTrace();
-        }
+        }*/
     }
 
 
@@ -113,30 +135,41 @@ public class IniciarSesion extends HttpServlet {
     }
 
 
-    public boolean validateUser (String emailToValidate, String passwordToValidate){
+    public String validateUser (String emailToValidate, String passwordToValidate){
 
         String urlDB = "jdbc:mysql://localhost/graficadoraDeLineas";
         String usernameDB = "root";
         String passwordDB = "1234";
         String sqlquery = "select * from usuarios where email='" + emailToValidate + "' and " + "password='" + passwordToValidate + "'";
-
+        String usuario = "";
+        String booleano = "";
         try{
             Class.forName("com.mysql.jdbc.Driver"); 
             Connection db = DriverManager.getConnection(urlDB,usernameDB,passwordDB);
             System.out.println("Successfully connected to DB");
             Statement state = db.createStatement();
             ResultSet rs = state.executeQuery(sqlquery);
-            rs.next();
-            System.out.println("Usuario " + rs.getString(2) + " encontrado!");
-            db.close();  
-            return true;
+            while(rs.next()){
+                int idUsuario = rs.getInt("idUsuario");               
+                int rolUsuario = rs.getInt("idRol");
+                booleano = "true";
+                usuario = idUsuario + "," + rolUsuario + "," + booleano;
+            }          
+            //System.out.println("Usuario " + rs.getString(2) + " encontrado!");
+            db.close();
+            System.out.println("El usuario en validateUser es:" + usuario);
+            return usuario;
         }catch(SQLException e){
             System.out.println("Error");
-            e.printStackTrace();
-            return false;
+            e.printStackTrace();        
+            booleano = "false";
+            usuario += booleano;
+            return usuario;
         }catch(ClassNotFoundException e){
             e.printStackTrace();
-            return false;
+            booleano = "false";
+            usuario += booleano;
+            return usuario;
         }
     }
 }

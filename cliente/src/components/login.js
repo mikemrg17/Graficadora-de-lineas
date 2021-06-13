@@ -18,8 +18,16 @@ class Login extends React.Component{
         console.log(this.state);
         axios.post("http://localhost:8080/GraficadoraDeLineas/IniciarSesion",this.state)
         .then(response => {
-            console.log(`La información recibida es: ${response.data}`);
-
+            //console.log(`La información recibida es: ${response.data}`);
+            let respuestaServer = response.data;
+            let cadenaSeparada = respuestaServer.split(",");
+            let idUsuario = cadenaSeparada[0];
+            let idRol = cadenaSeparada[1];
+            let validacion = cadenaSeparada[2];
+            console.log(`TIPO DE IDUSUARIO ES : ${typeof idRol}`); 
+            console.log(`IDUSUARIO ES : ${idUsuario}`);
+            console.log(`USUARIO ES : ${idRol}`);
+            console.log(`VALIDACION ES : ${validacion}`);
             history.push('/GraficadoraDeLineas/userMainPage');
         })
         .catch(error => {
