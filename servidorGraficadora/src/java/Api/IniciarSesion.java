@@ -64,6 +64,7 @@ public class IniciarSesion extends HttpServlet {
     
          //Rol común
         int rol = 2;
+        System.out.println("El rol es: " + rol);
 
         try {
             if(validateUser(email,password)){
@@ -115,17 +116,18 @@ public class IniciarSesion extends HttpServlet {
     public boolean validateUser (String emailToValidate, String passwordToValidate){
 
         String urlDB = "jdbc:mysql://localhost/graficadoraDeLineas";
-        String usernameDB = "miguel";
+        String usernameDB = "root";
         String passwordDB = "1234";
-        String sqlquery = "select * from usuarios where email='" + emailToValidate + "' and password='" + passwordToValidate + "'";
-        int row;
+        String sqlquery = "select * from usuarios where email='" + emailToValidate + "' and " + "password='" + passwordToValidate + "'";
 
         try{
             Class.forName("com.mysql.jdbc.Driver"); 
             Connection db = DriverManager.getConnection(urlDB,usernameDB,passwordDB);
             System.out.println("Successfully connected to DB");
-            PreparedStatement statement = db.prepareStatement(sqlquery);
-            row = statement.executeUpdate();
+            Statement state = db.createStatement();
+            ResultSet rs = state.executeQuery(sqlquery);
+            rs.next();
+            System.out.println("Usuario " + rs.getString(2) + " encontrado!");
             db.close();  
             return true;
         }catch(SQLException e){
