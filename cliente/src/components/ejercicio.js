@@ -2,6 +2,7 @@ import React from "react";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 //import axios from "axios";
+import '../styles/ejercicio.css';
 
 const Ejercicio = ({ id, x1, y1, x2, y2 }) => {
 

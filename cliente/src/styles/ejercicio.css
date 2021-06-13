@@ -1,7 +1,3 @@
-.MarginContainer {
-    margin-top: 24px;
-}
-
 .AlignCenter {
     text-align: center;
     display: flex;
@@ -21,10 +17,4 @@
 
 .M-6 {
     margin:6px;
-}
-
-.ImageContainer {
-    width: 140px;
-    height: 140px;
-    object-fit: contain;
 }

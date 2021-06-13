@@ -2,7 +2,6 @@ import axios from 'axios';
 import React from 'react';
 import { Table } from 'react-bootstrap';
 import Ejercicio from "./ejercicio";
-import '../styles/userMainPage.css';
 
 class UserMainPage extends React.Component{
 
