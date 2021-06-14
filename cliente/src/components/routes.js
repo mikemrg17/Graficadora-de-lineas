@@ -7,6 +7,7 @@ import UserMainPage from "./userMainPage";
 import AdminMainPage from "./adminMainPage";
 import AddEjercicio from "./addEjercicio";
 import Infousuario from "./infousuario";
+import Editusuario from "./editusuario";
 
 const App = () => {
   return (
@@ -32,6 +33,9 @@ const App = () => {
         </Route>
         <Route exact path="/GraficadoraDeLineas/infousuario">
           <Infousuario />
+        </Route>
+        <Route exact path="/GraficadoraDeLineas/editusuario">
+          <Editusuario />
         </Route>
         <Route
           path="*"

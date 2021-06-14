@@ -36,7 +36,14 @@ const Usuario = ({ idUsuario, nombre }) => {
             Ver usuario
           </Link>
         </Button>
-        <Button>Modificar usuario</Button>
+        <Button variant="warning" className="M-6">
+          <Link
+            to={`/GraficadoraDeLineas/editusuario?id=${idUsuario}`}
+            className="CustomLink"
+          >
+            Modificar usuario
+          </Link>
+        </Button>
         <Button variant="danger" className="M-6" onClick={handleClickEliminar}>
           Eliminar usuario
         </Button>
