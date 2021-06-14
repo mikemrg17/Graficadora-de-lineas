@@ -81,7 +81,7 @@ public class IniciarSesion extends HttpServlet {
         System.out.println("La cadena separada 2 es:" + partres[1]);
         System.out.println("La cadena separada 3 es:" + partres[2]);
         
-        //try {
+        try {
             if(partres[2].equals("false")){
                 json.append(res);
                 
@@ -93,10 +93,10 @@ public class IniciarSesion extends HttpServlet {
                 System.out.println("El json a enviar es:"+json.toString());
                 out.write(json.toString());           
             }
-        /*} catch (Exception ex) {
+        } catch (Exception ex) {
             System.out.println("No se pudo iniciar sesion, intentelo mas tarde");
             ex.printStackTrace();
-        }*/
+        }
     }
 
 
@@ -138,7 +138,7 @@ public class IniciarSesion extends HttpServlet {
     public String validateUser (String emailToValidate, String passwordToValidate){
 
         String urlDB = "jdbc:mysql://localhost/graficadoraDeLineas";
-        String usernameDB = "miguel";
+        String usernameDB = "root";
         String passwordDB = "1234";
         String sqlquery = "select * from usuarios where email='" + emailToValidate + "' and " + "password='" + passwordToValidate + "'";
         String usuario = "";

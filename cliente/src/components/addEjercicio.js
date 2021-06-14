@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/addEjercicio.css';
+import Canvas from './canvas';
 import axios from 'axios';
 
 import history from './history';
@@ -72,7 +73,7 @@ class AddEjercicio extends React.Component{
             y2: value
         },console.log(this.state.y2));
     }
-
+      
     render(){
         return (
             <div className="mainContainerR">
@@ -85,7 +86,8 @@ class AddEjercicio extends React.Component{
                     <div className="buttonDiv">
                             <input type="Submit" className="button" value="Agregar Ejercicio"/>                                 
                     </div>
-                </form>
+                    <Canvas /> 
+                </form>        
             </div>
         )
     }

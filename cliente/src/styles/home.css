@@ -1,9 +1,30 @@
-.mainContainer {
+.home-container {
+    height: 100vh;
     width: 100%;
-    height: 48em;
+    object-fit: contain;
+    box-shadow: insert 0 0 0 1000px rgba(0, 0, 0, 0.6);
 }
 
-.registro {
+.imagen {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+}
+
+.head {
+    background-color: #04288b;
+    border-bottom: 2px solid;
+    border-color: black;
+}
+
+.head h1 {
+    color: white;
+    margin-left: 10px;
+}
+
+/*.registro {
     display: flexbox;
     flex-direction: vertical;
     width: fit-content;
@@ -32,4 +53,4 @@
 .slide_down:hover {
     color: #313539;
     box-shadow: inset 0 100px 0 0 #949EA9;
-  }
+  }*/

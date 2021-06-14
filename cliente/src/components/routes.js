@@ -9,6 +9,7 @@ import Registro from './registro';
 import UserMainPage from "./userMainPage";
 import AdminMainPage from "./adminMainPage";
 import AddEjercicio from "./addEjercicio";
+import Canvas from './canvas';
 
 const App = () => {
     return (
@@ -31,6 +32,9 @@ const App = () => {
                     </Route>
                     <Route exact path="/GraficadoraDeLineas/addEjercicio">
                         <AddEjercicio />
+                    </Route>
+                    <Route exact path="/GraficadoraDeLineas/canvas">
+                        <Canvas />
                     </Route>
                     <Route path="*" render={() => window.location.href = "/GraficadoraDeLineas/"}/>
                 </Switch>
