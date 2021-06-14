@@ -2,12 +2,20 @@ import axios from 'axios';
 import React from 'react';
 import { Table } from 'react-bootstrap';
 import Ejercicio from "./ejercicio";
+import '../styles/userMainPage.css';
+import history from './history';
+
 
 class UserMainPage extends React.Component{
 
     state = {
         id: "",
         data: []
+    }
+
+    toAddEjercicio = e =>{
+        const idUsuario = this.state.id;
+        history.push(`/GraficadoraDeLineas/addEjercicio?id=${idUsuario}`);
     }
 
 
@@ -36,26 +44,33 @@ class UserMainPage extends React.Component{
         const {data} = this.state;
         return (
             <div className="mainContainerR">
-                <div className="headerUserMainPage">This is a header</div>
-                <div className="contentUserMainPage">This is the content</div>
-                <Table striped bordered >
-                    <thead>
-                        <tr>
-                            <th>X1</th>
-                            <th>Y1</th>
-                            <th>X2</th>
-                            <th>Y2</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            data.map(ejercicio => {
-                                return <Ejercicio {...ejercicio} />
-                            })
-                        }
-                    </tbody>
-                </Table>
+                <header className="header">
+                    <div className="headerTitle">Ejercicios</div>
+                    <button className="link">Ejercicios</button>
+                    <button className="link">Cuenta</button>
+                </header>
+                <div className="content">
+                    <button className="newLineButton" onClick={this.toAddEjercicio}>Nuevo Ejercicio</button>
+                    <div className="contentTitle">Historial</div>
+                    <Table striped bordered >
+                        <thead>
+                            <tr>
+                                <th>X1</th>
+                                <th>Y1</th>
+                                <th>X2</th>
+                                <th>Y2</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                                data.map(ejercicio => {
+                                    return <Ejercicio {...ejercicio} />
+                                })
+                            }
+                        </tbody>
+                    </Table>
+                </div>
             </div>
         )
     }
