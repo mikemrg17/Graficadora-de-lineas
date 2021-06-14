@@ -28,7 +28,14 @@ const Usuario = ({ idUsuario, nombre }) => {
       <td>{nombre}</td>
 
       <td className="AlignCenter">
-        <Button>Ver usuario</Button>
+        <Button variant="success" className="M-6">
+          <Link
+            to={`/GraficadoraDeLineas/infousuario?id=${idUsuario}`}
+            className="CustomLink"
+          >
+            Ver usuario
+          </Link>
+        </Button>
         <Button>Modificar usuario</Button>
         <Button variant="danger" className="M-6" onClick={handleClickEliminar}>
           Eliminar usuario
