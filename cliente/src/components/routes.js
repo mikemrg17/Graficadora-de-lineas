@@ -1,14 +1,14 @@
 import React from "react";
-import {
-    Switch,
-    Route
-} from "react-router-dom";
-import Home from './home';
+import { Switch, Route } from "react-router-dom";
+import Home from "./home";
 import Login from "./login";
-import Registro from './registro';
+import Registro from "./registro";
 import UserMainPage from "./userMainPage";
 import AdminMainPage from "./adminMainPage";
 import AddEjercicio from "./addEjercicio";
+import Infousuario from "./infousuario";
+import Editusuario from "./editusuario";
+<<<<<<< HEAD
 import Canvas from './canvas';
 
 const App = () => {
@@ -36,9 +36,16 @@ const App = () => {
                     <Route exact path="/GraficadoraDeLineas/canvas">
                         <Canvas />
                     </Route>
+                    <Route exact path="/GraficadoraDeLineas/infousuario">
+                    <Infousuario />
+                    </Route>
+                    <Route exact path="/GraficadoraDeLineas/editusuario">
+                    <Editusuario />
+                    </Route>
                     <Route path="*" render={() => window.location.href = "/GraficadoraDeLineas/"}/>
                 </Switch>
             </div>
     );
 }
 export default App;
+

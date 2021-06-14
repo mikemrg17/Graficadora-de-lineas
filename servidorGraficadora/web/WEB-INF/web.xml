@@ -24,6 +24,14 @@
         <servlet-name>EliminarUsuario</servlet-name>
         <servlet-class>Api.EliminarUsuario</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UsuarioSol</servlet-name>
+        <servlet-class>Api.UsuarioSol</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditarUsuario</servlet-name>
+        <servlet-class>Api.EditarUsuario</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>java</servlet-name>
         <url-pattern>/java</url-pattern>
@@ -47,6 +55,14 @@
     <servlet-mapping>
         <servlet-name>EliminarUsuario</servlet-name>
         <url-pattern>/EliminarUsuario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UsuarioSol</servlet-name>
+        <url-pattern>/UsuarioSol</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditarUsuario</servlet-name>
+        <url-pattern>/EditarUsuario</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
