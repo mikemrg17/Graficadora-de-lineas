@@ -23,7 +23,7 @@ const Canvas = ({idEjercicio, x1, y1, x2, y2}) => {
                 x2 : {x2}<br/>
                 y2 : {y2}<br/>
                 <h1>Canvas:</h1>
-                <canvas ref={canvasRef}/>
+                <canvas ref={canvasRef} className="canvas"/>
         </div>
         
     )
