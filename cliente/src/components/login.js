@@ -1,6 +1,7 @@
 import React from 'react';
-import '../styles/registro.css';
+import '../styles/login.css';
 import axios from 'axios';
+import Avatar from '../images/avatar.png'
 
 import history from './history';
 
@@ -59,13 +60,16 @@ class Login extends React.Component{
 
     render(){
         return (
-            <div className="mainContainerR">
-                <h1 className="title">Inicio de sesion</h1>
-                <div>
+            <div className="login-container">               
+                <div className="loginbox">
+                    <img className="avatar" src={Avatar} />
+                    <h3>Inicio de Sesión</h3>
                     <form className="formInsertar" onSubmit={this.logUser}>
-                        <input type="text" name="email" id="email" placeholder="Email" className="form-control mb-2" onChange={e=>this.handleEmailChange(e.target.value)}/>
-                        <input type="password" name="password" id="password" placeholder="Password" className="form-control mb-2" onChange={e=>this.handlePasswordChange(e.target.value)}/>
-                        <input type="Submit" name="isesion" id="isesion" value="Iniciar Sesion"/>
+                        <p>Usuario</p>
+                        <input type="text" name="email" id="email" placeholder="Correo electronico" className="form-control" onChange={e=>this.handleEmailChange(e.target.value)}/>
+                        <p>Contraseña</p>
+                        <input type="password" name="password" id="password" placeholder="Contraseña" className="form-control" onChange={e=>this.handlePasswordChange(e.target.value)}/>
+                        <input type="Submit" name="isesion" id="isesion" className="button-submit" value="Iniciar Sesion"/>
                     </form>
                 </div>
             </div>

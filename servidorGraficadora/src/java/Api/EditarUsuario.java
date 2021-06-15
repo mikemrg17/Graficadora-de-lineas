@@ -35,7 +35,7 @@ public class EditarUsuario extends HttpServlet {
             Connection db = DriverManager.getConnection("jdbc:mysql://localhost/graficadoraDeLineas","root", "1234");
 
             PreparedStatement statement = db.prepareStatement("UPDATE usuarios SET nombre=? WHERE id=?");
-            statement.setString(payloadRequest);
+            //statement.setString(payloadRequest);
 
             row = statement.executeUpdate();
         }catch (Exception ex) {
