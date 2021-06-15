@@ -8,8 +8,8 @@ import AdminMainPage from "./adminMainPage";
 import AddEjercicio from "./addEjercicio";
 import Infousuario from "./infousuario";
 import Editusuario from "./editusuario";
-<<<<<<< HEAD
-import Canvas from './canvas';
+//import Canvas from './canvas';
+import ProbarEjercicio from "./probarEjercicio";
 
 const App = () => {
     return (
@@ -27,20 +27,20 @@ const App = () => {
                     <Route exact path="/GraficadoraDeLineas/userMainPage">
                         <UserMainPage />
                     </Route>
+                    <Route exact path="/GraficadoraDeLineas/probarEjercicio">
+                        <ProbarEjercicio/>
+                    </Route>
                     <Route exact path="/GraficadoraDeLineas/adminMainPage">
                         <AdminMainPage />
                     </Route>
                     <Route exact path="/GraficadoraDeLineas/addEjercicio">
                         <AddEjercicio />
                     </Route>
-                    <Route exact path="/GraficadoraDeLineas/canvas">
-                        <Canvas />
-                    </Route>
                     <Route exact path="/GraficadoraDeLineas/infousuario">
-                    <Infousuario />
+                        <Infousuario />
                     </Route>
                     <Route exact path="/GraficadoraDeLineas/editusuario">
-                    <Editusuario />
+                        <Editusuario />
                     </Route>
                     <Route path="*" render={() => window.location.href = "/GraficadoraDeLineas/"}/>
                 </Switch>

@@ -13,6 +13,10 @@ class UserMainPage extends React.Component{
         data: []
     }
 
+    exit = e => {
+        history.push(`/GraficadoraDeLineas/`);
+    }
+
     toAddEjercicio = e =>{
         const idUsuario = this.state.id;
         history.push(`/GraficadoraDeLineas/addEjercicio?id=${idUsuario}`);
@@ -46,8 +50,7 @@ class UserMainPage extends React.Component{
             <div className="mainContainerR">
                 <header className="header">
                     <div className="headerTitle">Ejercicios</div>
-                    <button className="link">Ejercicios</button>
-                    <button className="link">Cuenta</button>
+                    <button className="link" onClick={this.exit}>Salir</button>
                 </header>
                 <div className="content">
                     <button className="newLineButton" onClick={this.toAddEjercicio}>Nuevo Ejercicio</button>

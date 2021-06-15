@@ -4,11 +4,16 @@ import { Link } from "react-router-dom";
 //import axios from "axios";
 import '../styles/ejercicio.css';
 
-const Ejercicio = ({ id, x1, y1, x2, y2 }) => {
+const Ejercicio = ({ idEjercicio, x1, y1, x2, y2 }) => {
 
     const handleClickEliminar = (event) => {
         //Eliminar
         alert("Eliminado papu");
+    }
+
+    const handleClickEditar = e => {
+        //Editar
+        alert("Editado perro");
     }
 
     return (
@@ -22,8 +27,8 @@ const Ejercicio = ({ id, x1, y1, x2, y2 }) => {
                 <Button
                     variant="success"
                     className="M-6">
-                    <Link to={`/`} className="CustomLink" >
-                        Ver Ejericio
+                    <Link to={`/GraficadoraDeLineas/probarEjercicio?idEjercicio=${idEjercicio}`} className="CustomLink" >
+                        Probar Ejercicio
                     </Link>
                 </Button>
                 <Button

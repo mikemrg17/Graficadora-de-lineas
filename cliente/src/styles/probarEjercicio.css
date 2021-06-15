@@ -1,0 +1,44 @@
+.mainContainer{
+    margin: auto;
+    border-color: blue;
+    border: 2px solid;
+    width: 1392px;
+    height: 769px;
+}
+
+.header{
+    display: flex;
+    flex-direction: row;
+    position: sticky;
+    top: 0;
+    color: white;
+    text-align: center;
+    background-color: #878585;
+}
+
+.headerTitle{
+    text-align: center;
+    font-size: 2rem;
+    margin: auto;
+}
+
+.content{
+    display: flexbox;
+    flex-direction: vertical;
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+    margin-top: 3em;
+    text-align: center;
+}
+
+.link{
+    color: white;
+    width: 5rem;
+    height: 50%;
+    margin-top: 0.5rem;
+    margin-right: 2rem;
+    background-color: transparent;
+    border: transparent;
+    float: right;
+}

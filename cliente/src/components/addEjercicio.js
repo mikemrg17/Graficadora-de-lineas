@@ -1,8 +1,7 @@
 import React from 'react';
 import '../styles/addEjercicio.css';
-import Canvas from './canvas';
+//import Canvas from './canvas';
 import axios from 'axios';
-
 import history from './history';
 
 class AddEjercicio extends React.Component{
@@ -13,6 +12,11 @@ class AddEjercicio extends React.Component{
         y1: "0",
         x2: "1",
         y2: "1"
+    }
+
+    back = e => {
+        //history.push(`/GraficadoraDeLineas/userMainPage?id=${this.state.id}`);
+        history.goBack();
     }
 
     componentDidMount() {
@@ -29,20 +33,15 @@ class AddEjercicio extends React.Component{
             //alert("Se insertará el usuario ");
             console.log("Objeto a pasar");
             console.log(this.state);
-            /*axios.post("http://localhost:8080/GraficadoraDeLineas/InsertarUsuario",this.state)
+            axios.post("http://localhost:8080/GraficadoraDeLineas/InsertarEjercicio",this.state)
             .then(response => {
-            //console.log(`Objeto recibido: ${response.data}`);
-            let respuestaServer = response.data;
-            let cadenaSeparada = respuestaServer.split(",");
-            let idUsuario = cadenaSeparada[0];
-            console.log(`TIPO DE IDUSUARIO ES : ${typeof idUsuario}`); 
-            console.log(`IDUSUARIO ES : ${idUsuario}`);
-            history.push('/GraficadoraDeLineas/userMainPage');
+                //console.log(`Objeto recibido: ${response.data}`);
+                history.push(`/GraficadoraDeLineas/userMainPage?id=${this.state.id}`);
             })
             .catch(error => {
                     console.info(error);
                     console.log("Ha ocurrido un error al insertar el usuario");
-            });*/
+            });
         } 
     }
 
@@ -78,6 +77,7 @@ class AddEjercicio extends React.Component{
         return (
             <div className="mainContainerR">
                 <h1 className="title">Nuevo Ejercicio</h1>
+                <button className="link" onClick={this.back}>Regresar</button>
                 <form className="formAddEjercicio" onSubmit={this.addEjercicio}>
                     (<input type="number" name="x1" id="x1" placeholder="x1" className="formInput" onChange={e=>this.handleX1Change(e.target.value)}/>
                     <input type="number" name="y1" id="y1" placeholder="y1" className="formInput" onChange={e=>this.handleY1Change(e.target.value)}/>),
@@ -85,8 +85,7 @@ class AddEjercicio extends React.Component{
                     <input type="number" name="y2" id="y2" placeholder="y2" className="formInput" onChange={e=>this.handleY2Change(e.target.value)}/>)
                     <div className="buttonDiv">
                             <input type="Submit" className="button" value="Agregar Ejercicio"/>                                 
-                    </div>
-                    <Canvas /> 
+                    </div>                    
                 </form>        
             </div>
         )
