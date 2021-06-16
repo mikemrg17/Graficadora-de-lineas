@@ -2,6 +2,7 @@ import React from "react";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import history from './history';
 
 const Usuario = ({ idUsuario, nombre }) => {
   const handleClickEliminar = (event) => {
@@ -19,7 +20,7 @@ const Usuario = ({ idUsuario, nombre }) => {
           alert(response);
         })
         .finally(() => {
-          window.location.href = "/GraficadoraDeLineas/";
+          history.push(`/GraficadoraDeLineas/redirecting?id=1`);
         });
     }
   };

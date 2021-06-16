@@ -10,6 +10,8 @@ import Infousuario from "./infousuario";
 import Editusuario from "./editusuario";
 //import Canvas from './canvas';
 import ProbarEjercicio from "./probarEjercicio";
+import Redirecting from './redirecting';
+import EditEjercicio from './editEjercicio';
 
 const App = () => {
     return (
@@ -41,6 +43,12 @@ const App = () => {
                     </Route>
                     <Route exact path="/GraficadoraDeLineas/editusuario">
                         <Editusuario />
+                    </Route>
+                    <Route exact path="/GraficadoraDeLineas/redirecting">
+                        <Redirecting />
+                    </Route>
+                    <Route exact path="/GraficadoraDeLineas/editEjercicio">
+                        <EditEjercicio />
                     </Route>
                     <Route path="*" render={() => window.location.href = "/GraficadoraDeLineas/"}/>
                 </Switch>

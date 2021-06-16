@@ -8,7 +8,7 @@ const Home = () => {
         <div className="home-container">
             <img className="imagen" src={Ecuacionrecta} />
             <div className="head">
-                <h1>Home</h1>    
+                <h1>Graficadora de rectas</h1>    
             </div>
             <div className="actions">
                 <div className="text">¿Ya tienes una cuenta? </div>

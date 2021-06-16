@@ -32,6 +32,22 @@
         <servlet-name>EditarUsuario</servlet-name>
         <servlet-class>Api.EditarUsuario</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SolicitarEjercicio</servlet-name>
+        <servlet-class>Api.SolicitarEjercicio</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>InsertarEjercicio</servlet-name>
+        <servlet-class>Api.InsertarEjercicio</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EliminarEjercicio</servlet-name>
+        <servlet-class>Api.EliminarEjercicio</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditarEjercicio</servlet-name>
+        <servlet-class>Api.EditarEjercicio</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>java</servlet-name>
         <url-pattern>/java</url-pattern>
@@ -63,6 +79,22 @@
     <servlet-mapping>
         <servlet-name>EditarUsuario</servlet-name>
         <url-pattern>/EditarUsuario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SolicitarEjercicio</servlet-name>
+        <url-pattern>/SolicitarEjercicio</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InsertarEjercicio</servlet-name>
+        <url-pattern>/InsertarEjercicio</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EliminarEjercicio</servlet-name>
+        <url-pattern>/EliminarEjercicio</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditarEjercicio</servlet-name>
+        <url-pattern>/EditarEjercicio</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

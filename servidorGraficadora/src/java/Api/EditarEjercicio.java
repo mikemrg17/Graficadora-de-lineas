@@ -26,7 +26,7 @@ import org.json.simple.parser.ParseException;
  * @author miguel
  */
 
-public class InsertarUsuario extends HttpServlet {
+public class EditarEjercicio extends HttpServlet {
     
     private PrintWriter out;
     
@@ -46,69 +46,43 @@ public class InsertarUsuario extends HttpServlet {
         JSONParser parser = new JSONParser();
         
         //Inicializamos el nuevo objeto json
-        JSONObject jsonUsuario = new JSONObject(); 
+        JSONObject jsonEjercicio = new JSONObject(); 
         
         //Parseamos el String a JSONObject y lo asignamos al JSONObject que lo almacenará
         try {
-            jsonUsuario = (JSONObject) parser.parse(payloadRequest);
+            jsonEjercicio = (JSONObject) parser.parse(payloadRequest);
         } catch (ParseException ex) {
-            Logger.getLogger(InsertarUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            //Logger.getLogger(EditarUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
-        System.out.println("Objeto JSON es: " + jsonUsuario);
-        
-        //Email
-        String email = (String) jsonUsuario.get("email");
-        System.out.println("El usuario es: " + email);
+        System.out.println("Objeto JSON es: " + jsonEjercicio);
+        //idUsuario
+        long idEjercicio = (long) jsonEjercicio.get("idEjercicio");
+        System.out.println("El idUsuario es: " + idEjercicio);
+        //x1
+        String x1 = (String) jsonEjercicio.get("x1");
+        System.out.println("El x1 es: " + x1);
         //Nombre
-        String nombre = (String) jsonUsuario.get("nombre");
-        System.out.println("El nombre es: " + nombre);
+        String y1 = (String) jsonEjercicio.get("y1");
+        System.out.println("El y1 es: " + y1);
         //Apellido
-        String apellido = (String) jsonUsuario.get("apellido");
-        System.out.println("El apellido es: " + apellido);
+        String x2 = (String) jsonEjercicio.get("x2");
+        System.out.println("El x2 es: " + x2);
         //Password
-        String password = (String) jsonUsuario.get("password");
-        System.out.println("La contraseña es: " + password);
-        
-        //Rol común
-        int rol = 2;
-        
+        String y2 = (String) jsonEjercicio.get("y2");
+        System.out.println("El y2 es: " + y2);
         
         int row;
         try {
             int contador=0;
             Class.forName("com.mysql.jdbc.Driver");
             Connection db = DriverManager.getConnection("jdbc:mysql://localhost/graficadoraDeLineas","miguel", "1234");
-            PreparedStatement statement = db.prepareStatement("INSERT INTO usuarios(email,nombre,apellido,password,idRol) VALUES(?,?,?,?,?)");
-            statement.setString(1, email);
-            statement.setString(2, nombre);
-            statement.setString(3, apellido);
-            statement.setString(4, password);
-            statement.setInt(5, rol);
+                PreparedStatement statement = db.prepareStatement("UPDATE ejercicios SET x1=?, y1=?, x2=?, y2=? WHERE idEjercicio='"+idEjercicio+"'");
+            statement.setFloat(1, Float.parseFloat(x1));
+            statement.setFloat(2, Float.parseFloat(y1));
+            statement.setFloat(3, Float.parseFloat(x2));
+            statement.setFloat(4, Float.parseFloat(y2));
             row = statement.executeUpdate();
-            System.out.println("Se insertó a la base de datos");
-            
-            
-            Statement s = db.createStatement();
-            ResultSet rs=s.executeQuery("SELECT * FROM usuarios WHERE email='"+email+"' AND nombre='"+nombre+"' AND apellido='"+apellido+"' AND password='"+password+"' AND idRol='"+rol+"';");
-            while(rs.next()){
-                int idUsuario = rs.getInt("idUsuario");
-                String emailUsuario = rs.getString("email");
-                String nombreUsuario = rs.getString("nombre");
-                String apellidoUsuario = rs.getString("apellido");
-                String passwordUsuario = rs.getString("password");
-                int rolUsuario = rs.getInt("idRol");
-                json.append(idUsuario);
-                json.append(",");
-                json.append(emailUsuario);
-                json.append(",");
-                json.append(nombreUsuario);
-                json.append(",");
-                json.append(apellidoUsuario);
-                json.append(",");
-                json.append(passwordUsuario);
-                json.append(",");
-                json.append(rolUsuario);
-            }
+            System.out.println("Se modifico en la base de datos");
             
         } catch (Exception ex) {
             System.out.println("No se pudo insertar el registro");

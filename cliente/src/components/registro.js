@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/registro.css';
 import axios from 'axios';
-
+import SignUpIcon from '../images/signUp.png';
 import history from './history';
 
 class Registro extends React.Component{
@@ -72,17 +72,22 @@ class Registro extends React.Component{
 
     render(){
         return (
-            <div className="mainContainerR">
-                <h1 className="title">Registro</h1>
-                <form className="formRegistro" onSubmit={this.addUser}>
-                    <input type="text" name="email" id="email" placeholder="Inserta tu email" className="formInput" onChange={e=>this.handleEmailChange(e.target.value)}/>
-                    <input type="text" name="nombre" id="nombre" placeholder="Inserta tu nombre" className="formInput" onChange={e=>this.handleNameChange(e.target.value)}/>
-                    <input type="text" name="apellido" id="apellido" placeholder="Inserta tu apellido" className="formInput" onChange={e=>this.handleApellidoChange(e.target.value)}/>
-                    <input type="text" name="password" id="password" placeholder="Inserta una contraseña" className="formInput" onChange={e=>this.handlePasswordChange(e.target.value)}/>
-                    <div className="buttonDiv">
-                            <input type="Submit" className="button" value="Registrarme"/>                                 
-                    </div>
-                </form>
+            <div className="signUpContainer">
+                <div className="signUpBox">
+                    <img className="signUpIcon" src={SignUpIcon} />
+                    <h3>Registro</h3>
+                    <form className="formRegistro" onSubmit={this.addUser}>
+                        <p>Email</p>
+                        <input type="text" name="email" id="email" placeholder="Inserta tu email" className="form-control" onChange={e=>this.handleEmailChange(e.target.value)}/>
+                        <p>Nombre</p>
+                        <input type="text" name="nombre" id="nombre" placeholder="Inserta tu nombre" className="form-control" onChange={e=>this.handleNameChange(e.target.value)}/>
+                        <p>Apellido</p>
+                        <input type="text" name="apellido" id="apellido" placeholder="Inserta tu apellido" className="form-control" onChange={e=>this.handleApellidoChange(e.target.value)}/>
+                        <p>Contraseña</p>
+                        <input type="text" name="password" id="password" placeholder="Inserta una contraseña" className="form-control" onChange={e=>this.handlePasswordChange(e.target.value)}/>
+                        <input type="Submit" className="button-submit" value="Registrarme"/>                                 
+                    </form>
+                </div>
             </div>
         )
     }

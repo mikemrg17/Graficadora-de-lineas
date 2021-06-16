@@ -42,26 +42,3 @@
     border: transparent;
     float: right;
 }
-
-.contentTitle{
-    text-align: center;
-    font-size-adjust: 80%;
-    color: #C1C1C1;
-}
-
-.newLineButton{
-    width: 90%;
-    height: 4rem;
-    margin: auto;
-    margin-bottom: 1rem;
-    color: white;
-    font-size: 2rem;
-    background-color: black;
-    border: transparent;
-    border-radius: 0.5rem;
-    text-decoration: none;
-}
-
-.tableEjercicio {
-    width: fit-content;
-}

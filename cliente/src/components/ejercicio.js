@@ -1,19 +1,28 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-//import axios from "axios";
+import axios from "axios";
 import '../styles/ejercicio.css';
+import history from "./history";
 
 const Ejercicio = ({ idEjercicio, x1, y1, x2, y2 }) => {
 
+    let idUsuario;
+
+
     const handleClickEliminar = (event) => {
         //Eliminar
-        alert("Eliminado papu");
-    }
-
-    const handleClickEditar = e => {
-        //Editar
-        alert("Editado perro");
+        axios.post(`http://localhost:8080/GraficadoraDeLineas/EliminarEjercicio?idEjercicio=${idEjercicio}`).then(response => {
+            console.log(response.data);
+            let objectReceived = {
+                id: ""
+            }
+            objectReceived={id : response.data};
+            idUsuario = response.data;
+            history.push(`/GraficadoraDeLineas/redirecting?id=${idUsuario}`);
+        }).catch(error => {
+            console.info(error);
+        })
     }
 
     return (
@@ -34,7 +43,7 @@ const Ejercicio = ({ idEjercicio, x1, y1, x2, y2 }) => {
                 <Button
                     variant="warning"
                     className="M-6">
-                    <Link to={``} className="CustomLink" >
+                    <Link to={`/GraficadoraDeLineas/editEjercicio?idEjercicio=${idEjercicio}`} className="CustomLink" >
                         Editar Ejercicio
                     </Link>
                 </Button>
@@ -42,7 +51,7 @@ const Ejercicio = ({ idEjercicio, x1, y1, x2, y2 }) => {
                     variant="danger"
                     className="M-6"
                     onClick={handleClickEliminar}>
-                    Eliminar Ejercicio
+                        Eliminar Ejercicio
                 </Button>
             </td>
         </tr>

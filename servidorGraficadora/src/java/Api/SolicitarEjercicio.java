@@ -1,3 +1,4 @@
+
 package Api;
 
 import java.io.BufferedReader;
@@ -23,10 +24,11 @@ import org.json.simple.parser.ParseException;
 
 /**
  *
- * @author Luis
+ * @author miguel
  */
-public class DatosUsuario extends HttpServlet {
 
+public class SolicitarEjercicio extends HttpServlet {
+    
     private PrintWriter out;
     
     @Override
@@ -37,7 +39,7 @@ public class DatosUsuario extends HttpServlet {
         response.addHeader("Access-Control-Allow-Origin", "*");
         StringBuilder json = new StringBuilder();
         
-        String idSolicitado = request.getParameter("id");
+        String idEjercicio = request.getParameter("idEjercicio");
         JSONArray array = new JSONArray();
         try{
             int contador=0;
@@ -45,21 +47,24 @@ public class DatosUsuario extends HttpServlet {
             Connection db = DriverManager.getConnection("jdbc:mysql://localhost/graficadoraDeLineas","miguel", "1234");
             Statement s = db.createStatement();
             //ResultSet rs = s.executeQuery("SELECT JSON_ARRAYAGG(JSON_OBJECT('idEjercicio', idEjercicio, 'x1', x1, 'y1', y1, 'x2', x2, 'y2', y2)) AS jsonE FROM ejercicios WHERE idUsuario = '"+idSolicitado+"';");
-            ResultSet rs=s.executeQuery("SELECT * FROM usuarios WHERE idRol=2;");
+            ResultSet rs=s.executeQuery("SELECT * FROM ejercicios WHERE idEjercicio='"+idEjercicio+"';");
             
             //JSONObject jsonObject = new JSONObject();
             
             
             while(rs.next()){
                 JSONObject ejercicioJson = new JSONObject();
-                ejercicioJson.put("idUsuario", rs.getInt("idUsuario"));
-                ejercicioJson.put("nombre", rs.getString("nombre"));
+                ejercicioJson.put("idEjercicio", rs.getInt("idEjercicio"));
+                ejercicioJson.put("x1", rs.getFloat("x1"));
+                ejercicioJson.put("y1", rs.getFloat("y1"));
+                ejercicioJson.put("x2", rs.getFloat("x2"));
+                ejercicioJson.put("y2", rs.getFloat("y2"));
                 array.add(ejercicioJson);
                 //String jsonRes=rs.getString("jsonE");
                 //json.append(jsonRes);
             }
             
-            System.out.println("El objeto json de usuarios a enviar es: " + array.toString());
+            System.out.println("El objeto json de ejercicios a enviar es: " + array.toString());
             json.append(array.toString());
         }
         catch(Exception e){

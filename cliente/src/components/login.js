@@ -34,13 +34,12 @@ class Login extends React.Component{
                 history.push(`/GraficadoraDeLineas/userMainPage?id=${idUsuario}`);
             }else if(idRol == 1 && validacion=="true"){
                 history.push(`/GraficadoraDeLineas/adminMainPage?id=${idUsuario}`);
-            }else{
-                alert("No puedes acceder al sistema, vuelve a intentar con otro usuario");
             }
         })
         .catch(error => {
-                console.info(error);
+                alert("No estás registrado, se te mandará a registrarte");
                 console.log("Ha ocurrido un error al iniciar sesion");
+                history.push('/GraficadoraDeLineas/registro');
         });
     }
 

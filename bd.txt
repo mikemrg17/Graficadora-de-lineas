@@ -34,5 +34,5 @@ CREATE TABLE ejercicios(
     -> y2 FLOAT, 
     -> idUsuario TINYINT,
     -> PRIMARY KEY(idEjercicio),
-    -> FOREIGN KEY (idUsuario) REFERENCES usuarios(idUsuario));
+    -> FOREIGN KEY (idUsuario) REFERENCES usuarios(idUsuario) ON DELETE CASCADE);
 

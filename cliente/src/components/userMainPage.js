@@ -13,6 +13,10 @@ class UserMainPage extends React.Component{
         data: []
     }
 
+    reRender = () => {
+        this.forceUpdate();
+    }
+
     exit = e => {
         history.push(`/GraficadoraDeLineas/`);
     }
@@ -43,7 +47,6 @@ class UserMainPage extends React.Component{
         }
     }
 
-
     render(){
         const {data} = this.state;
         return (
@@ -55,7 +58,7 @@ class UserMainPage extends React.Component{
                 <div className="content">
                     <button className="newLineButton" onClick={this.toAddEjercicio}>Nuevo Ejercicio</button>
                     <div className="contentTitle">Historial</div>
-                    <Table striped bordered >
+                    <Table striped bordered className="tableEjercicio">
                         <thead>
                             <tr>
                                 <th>X1</th>
@@ -68,7 +71,7 @@ class UserMainPage extends React.Component{
                         <tbody>
                             {
                                 data.map(ejercicio => {
-                                    return <Ejercicio {...ejercicio} />
+                                    return <Ejercicio {...ejercicio}/>
                                 })
                             }
                         </tbody>
