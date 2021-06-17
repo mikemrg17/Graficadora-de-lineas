@@ -48,6 +48,10 @@
         <servlet-name>EditarEjercicio</servlet-name>
         <servlet-class>Api.EditarEjercicio</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ValidarEmailRepetido</servlet-name>
+        <servlet-class>Api.ValidarEmailRepetido</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>java</servlet-name>
         <url-pattern>/java</url-pattern>
@@ -95,6 +99,10 @@
     <servlet-mapping>
         <servlet-name>EditarEjercicio</servlet-name>
         <url-pattern>/EditarEjercicio</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ValidarEmailRepetido</servlet-name>
+        <url-pattern>/ValidarEmailRepetido</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
