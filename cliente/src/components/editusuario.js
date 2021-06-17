@@ -115,6 +115,7 @@ class Editusuario extends React.Component {
               name="nombre"
               value={this.state.email}
               onChange={(e) => this.EmailChange(e.target.value)}
+              required
             />
             <br></br>
             Nombre:{" "}
@@ -123,6 +124,7 @@ class Editusuario extends React.Component {
               name="nombre"
               value={this.state.nombre}
               onChange={(e) => this.NameChange(e.target.value)}
+              required
             />
             <br></br>
             Apellido:{" "}
@@ -131,6 +133,7 @@ class Editusuario extends React.Component {
               name="nombre"
               value={this.state.apellido}
               onChange={(e) => this.SurnameChange(e.target.value)}
+              required
             />
             <br></br>
             Password:{" "}
@@ -139,6 +142,7 @@ class Editusuario extends React.Component {
               name="nombre"
               value={this.state.password}
               onChange={(e) => this.PasswordChange(e.target.value)}
+              required
             />
             <br></br>
             <br></br>
