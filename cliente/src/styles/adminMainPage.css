@@ -1,0 +1,60 @@
+.mainCoontainer {
+  height: 100vh;
+  width: 100%;
+  object-fit: contain;
+  box-shadow: insert 0 0 0 1000px rgba(0, 0, 0, 0.6);
+  position: absolute;
+  z-index: -3;
+}
+.titlee {
+  margin: 1rem 1rem 1rem 1rem;
+  text-align: center;
+  color: #04288b;
+}
+.header {
+  display: flex;
+  flex-direction: row;
+  position: sticky;
+  top: 0;
+  color: white;
+  text-align: center;
+  background-color: #04288b;
+}
+.content {
+  display: flexbox;
+  flex-direction: vertical;
+  width: fit-content;
+  height: fit-content;
+  margin: auto;
+  margin-top: 3em;
+  text-align: center;
+}
+.head {
+  background-color: #04288b;
+  border-bottom: 2px solid;
+  text-align: center;
+}
+.tableUsuarios {
+  width: fit-content;
+  text-align: center;
+}
+
+.linkk {
+  color: white;
+  border: black;
+  background: #04288b;
+  border-color: black;
+}
+
+.formEditarUsario {
+  color: #04288b;
+  text-align: center;
+}
+.linkk2 {
+  background: #198704;
+  color: white;
+  padding: auto;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}

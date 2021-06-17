@@ -3,6 +3,7 @@ import { Button, Container } from "react-bootstrap";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
 import history from "./history";
+import "../styles/adminMainPage.css";
 
 class Editusuario extends React.Component {
   state = {
@@ -91,43 +92,62 @@ class Editusuario extends React.Component {
         console.log("Ha ocurrido un error al mandar los datos");
       });
   };
+  back = (e) => {
+    history.goBack();
+  };
 
   render() {
     return (
-      <div className="mainContainerR">
-        <h1 className="title">Informacion del usuario</h1>
+      <div className="mainCoontainer">
+        <center>
+          <div className="head">
+            <h1>Welcome: Admin</h1>
+          </div>
+          <h1 className="titlee">Información del usuario</h1>
 
-        <form className="formEditarUsario" onSubmit={this.Editarusuario}>
-          email:{" "}
-          <input
-            type="text"
-            name="nombre"
-            value={this.state.email}
-            onChange={(e) => this.EmailChange(e.target.value)}
-          />
-          nombre:{" "}
-          <input
-            type="text"
-            name="nombre"
-            value={this.state.nombre}
-            onChange={(e) => this.NameChange(e.target.value)}
-          />
-          apellido:{" "}
-          <input
-            type="text"
-            name="nombre"
-            value={this.state.apellido}
-            onChange={(e) => this.SurnameChange(e.target.value)}
-          />
-          password:{" "}
-          <input
-            type="text"
-            name="nombre"
-            value={this.state.password}
-            onChange={(e) => this.PasswordChange(e.target.value)}
-          />
-          <input type="Submit" className="secondary" value="Editar Usuario" />
-        </form>
+          <form className="formEditarUsario" onSubmit={this.Editarusuario}>
+            Email:{" "}
+            <input
+              type="text"
+              name="nombre"
+              placeholder={this.state.email}
+              onChange={(e) => this.EmailChange(e.target.value)}
+            />
+            <br></br>
+            Nombre:{" "}
+            <input
+              type="text"
+              name="nombre"
+              placeholder={this.state.nombre}
+              onChange={(e) => this.NameChange(e.target.value)}
+            />
+            <br></br>
+            Apellido:{" "}
+            <input
+              type="text"
+              name="nombre"
+              placeholder={this.state.apellido}
+              onChange={(e) => this.SurnameChange(e.target.value)}
+            />
+            <br></br>
+            Password:{" "}
+            <input
+              type="text"
+              name="nombre"
+              placeholder={this.state.password}
+              onChange={(e) => this.PasswordChange(e.target.value)}
+            />
+            <br></br>
+            <br></br>
+            <input type="Submit" value="Editar Usuario" className="linkk2" />
+          </form>
+          <div>
+            <br></br>
+            <Button className="linkk" onClick={this.back}>
+              Regresar
+            </Button>
+          </div>
+        </center>
       </div>
     );
   }
