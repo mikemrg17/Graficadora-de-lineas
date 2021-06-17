@@ -132,6 +132,7 @@ class EditEjercicio extends React.Component {
                 value={this.state.x1}
                 className="location"
                 onChange={(e) => this.handleX1Change(e.target.value)}
+                required
               />{" "}
               ,{" "}
               <input
@@ -139,6 +140,7 @@ class EditEjercicio extends React.Component {
                 value={this.state.y1}
                 className="location"
                 onChange={(e) => this.handleY1Change(e.target.value)}
+                required
               />{" "}
               )<br />
               <br />
@@ -148,6 +150,7 @@ class EditEjercicio extends React.Component {
                 value={this.state.x2}
                 className="location"
                 onChange={(e) => this.handleX2Change(e.target.value)}
+                required
               />{" "}
               ,{" "}
               <input
@@ -155,6 +158,7 @@ class EditEjercicio extends React.Component {
                 value={this.state.y2}
                 className="location"
                 onChange={(e) => this.handleY2Change(e.target.value)}
+                required
               />{" "}
               )<br />
               <br />
