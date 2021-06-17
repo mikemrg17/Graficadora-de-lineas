@@ -30,13 +30,20 @@ class AdminMainPage extends React.Component {
       console.log("No se recibió el parámetro de id");
     }
   }
+  exit = (e) => {
+    history.push(`/GraficadoraDeLineas/`);
+  };
   render() {
     const { data } = this.state;
     return (
       <div className="mainCoontainer">
-        <div className="head">
-          <h1>Welcome: Admin</h1>
-        </div>
+        <header className="headerr">
+          <div className="headerTitlee">Welcome:Admin</div>
+          <button className="link" onClick={this.exit}>
+            Salir
+          </button>
+        </header>
+
         <div>
           <br></br>
         </div>
@@ -63,11 +70,6 @@ class AdminMainPage extends React.Component {
               </tbody>
             </Table>
           </div>
-          <Button className="linkk">
-            <Link to={`/GraficadoraDeLineas/`} className="CustomLink">
-              Home
-            </Link>
-          </Button>
         </center>
       </div>
     );

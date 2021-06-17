@@ -99,10 +99,13 @@ class Editusuario extends React.Component {
   render() {
     return (
       <div className="mainCoontainer">
+        <header className="headerr">
+          <div className="headerTitlee">Welcome:Admin</div>
+          <button className="link" onClick={this.back}>
+            Regresar
+          </button>
+        </header>
         <center>
-          <div className="head">
-            <h1>Welcome: Admin</h1>
-          </div>
           <h1 className="titlee">Información del usuario</h1>
 
           <form className="formEditarUsario" onSubmit={this.Editarusuario}>
@@ -110,7 +113,7 @@ class Editusuario extends React.Component {
             <input
               type="text"
               name="nombre"
-              placeholder={this.state.email}
+              value={this.state.email}
               onChange={(e) => this.EmailChange(e.target.value)}
             />
             <br></br>
@@ -118,7 +121,7 @@ class Editusuario extends React.Component {
             <input
               type="text"
               name="nombre"
-              placeholder={this.state.nombre}
+              value={this.state.nombre}
               onChange={(e) => this.NameChange(e.target.value)}
             />
             <br></br>
@@ -126,7 +129,7 @@ class Editusuario extends React.Component {
             <input
               type="text"
               name="nombre"
-              placeholder={this.state.apellido}
+              value={this.state.apellido}
               onChange={(e) => this.SurnameChange(e.target.value)}
             />
             <br></br>
@@ -134,19 +137,13 @@ class Editusuario extends React.Component {
             <input
               type="text"
               name="nombre"
-              placeholder={this.state.password}
+              value={this.state.password}
               onChange={(e) => this.PasswordChange(e.target.value)}
             />
             <br></br>
             <br></br>
             <input type="Submit" value="Editar Usuario" className="linkk2" />
           </form>
-          <div>
-            <br></br>
-            <Button className="linkk" onClick={this.back}>
-              Regresar
-            </Button>
-          </div>
         </center>
       </div>
     );
