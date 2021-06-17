@@ -75,7 +75,7 @@ public class EditarUsuario extends HttpServlet {
         try {
             int contador=0;
             Class.forName("com.mysql.jdbc.Driver");
-            Connection db = DriverManager.getConnection("jdbc:mysql://localhost/graficadoraDeLineas","miguel", "1234");
+            Connection db = DriverManager.getConnection("jdbc:mysql://localhost/graficadoraDeLineas","root", "1234");
             PreparedStatement statement = db.prepareStatement("UPDATE usuarios SET email=?, nombre=?, apellido=?, password=? WHERE idUsuario='"+idUsuario+"'");
             statement.setString(1, email);
             statement.setString(2, nombre);

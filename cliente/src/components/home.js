@@ -13,8 +13,8 @@ const Home = () => {
             <div className="actions">
                 <div className="text">¿Ya tienes una cuenta? </div>
                 <Link to="/GraficadoraDeLineas/login" className="button_slide slide_down">Inicia Sesion</Link>
-                <div className="text">¿No estás registrado?</div>
-                <Link to="/GraficadoraDeLineas/registro" className="button_slide slide_down">Registro</Link>
+                <div className="text">¿No tienes una cuenta?</div>
+                <Link to="/GraficadoraDeLineas/registro" className="button_slide slide_down">Registrate</Link>
             </div>
         </div>
     )

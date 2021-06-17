@@ -75,7 +75,7 @@ public class EditarEjercicio extends HttpServlet {
         try {
             int contador=0;
             Class.forName("com.mysql.jdbc.Driver");
-            Connection db = DriverManager.getConnection("jdbc:mysql://localhost/graficadoraDeLineas","miguel", "1234");
+            Connection db = DriverManager.getConnection("jdbc:mysql://localhost/graficadoraDeLineas","root", "1234");
                 PreparedStatement statement = db.prepareStatement("UPDATE ejercicios SET x1=?, y1=?, x2=?, y2=? WHERE idEjercicio='"+idEjercicio+"'");
             statement.setFloat(1, Float.parseFloat(x1));
             statement.setFloat(2, Float.parseFloat(y1));
