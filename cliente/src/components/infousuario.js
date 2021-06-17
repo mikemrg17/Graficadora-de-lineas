@@ -38,9 +38,12 @@ class Infousuario extends React.Component {
     const { data } = this.state;
     return (
       <div className="mainCoontainer">
-        <div className="head">
-          <h1>Welcome: Admin</h1>
-        </div>
+        <header className="headerr">
+          <div className="headerTitlee">Welcome:Admin</div>
+          <button className="link" onClick={this.back}>
+            Regresar
+          </button>
+        </header>
         <center>
           <div className="titlee">
             <h1>Información del usuario</h1>
@@ -68,9 +71,6 @@ class Infousuario extends React.Component {
               })}
             </tbody>
           </Table>
-          <Button className="linkk" onClick={this.back}>
-            Regresar
-          </Button>
         </center>
       </div>
     );

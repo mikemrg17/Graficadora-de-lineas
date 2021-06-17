@@ -99,10 +99,13 @@ class Editusuario extends React.Component {
   render() {
     return (
       <div className="mainCoontainer">
+        <header className="headerr">
+          <div className="headerTitlee">Welcome:Admin</div>
+          <button className="link" onClick={this.back}>
+            Regresar
+          </button>
+        </header>
         <center>
-          <div className="head">
-            <h1>Welcome: Admin</h1>
-          </div>
           <h1 className="titlee">Información del usuario</h1>
 
           <form className="formEditarUsario" onSubmit={this.Editarusuario}>
@@ -141,12 +144,6 @@ class Editusuario extends React.Component {
             <br></br>
             <input type="Submit" value="Editar Usuario" className="linkk2" />
           </form>
-          <div>
-            <br></br>
-            <Button className="linkk" onClick={this.back}>
-              Regresar
-            </Button>
-          </div>
         </center>
       </div>
     );

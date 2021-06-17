@@ -58,3 +58,25 @@
   border-radius: 4px;
   cursor: pointer;
 }
+
+.headerTitlee {
+  text-align: center;
+  font-size: 2rem;
+  margin: auto;
+}
+
+.headerr {
+  display: flex;
+  flex-direction: row;
+  position: sticky;
+  top: 0;
+  color: white;
+  text-align: center;
+  background-color: #04288b;
+}
+
+.headb {
+  text-align: right;
+  color: white;
+  background-color: #04288b;
+}

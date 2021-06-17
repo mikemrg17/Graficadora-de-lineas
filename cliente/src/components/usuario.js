@@ -6,7 +6,6 @@ import history from "./history";
 
 const Usuario = ({ idUsuario, nombre }) => {
   const handleClickEliminar = (event) => {
-    <Alert></Alert>
     var r = confirm("¿Estas seguro de eliminar este usuario?");
     if (r == true) {
       axios
