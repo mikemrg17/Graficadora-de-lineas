@@ -113,7 +113,7 @@ class Editusuario extends React.Component {
             <input
               type="text"
               name="nombre"
-              placeholder={this.state.email}
+              value={this.state.email}
               onChange={(e) => this.EmailChange(e.target.value)}
             />
             <br></br>
@@ -121,7 +121,7 @@ class Editusuario extends React.Component {
             <input
               type="text"
               name="nombre"
-              placeholder={this.state.nombre}
+              value={this.state.nombre}
               onChange={(e) => this.NameChange(e.target.value)}
             />
             <br></br>
@@ -129,7 +129,7 @@ class Editusuario extends React.Component {
             <input
               type="text"
               name="nombre"
-              placeholder={this.state.apellido}
+              value={this.state.apellido}
               onChange={(e) => this.SurnameChange(e.target.value)}
             />
             <br></br>
@@ -137,7 +137,7 @@ class Editusuario extends React.Component {
             <input
               type="text"
               name="nombre"
-              placeholder={this.state.password}
+              value={this.state.password}
               onChange={(e) => this.PasswordChange(e.target.value)}
             />
             <br></br>
