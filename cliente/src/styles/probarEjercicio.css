@@ -1,12 +1,14 @@
-.mainContainer{
+.mainContainerR {
     margin: auto;
     border-color: blue;
     border: 2px solid;
-    width: 1392px;
-    height: 769px;
+    height: auto;
+    width: 100%;
+    object-fit: contain;
+
 }
 
-.header{
+.headerr{
     display: flex;
     flex-direction: row;
     position: sticky;
@@ -16,7 +18,7 @@
     background-color: #878585;
 }
 
-.headerTitle{
+.headerTitlee{
     text-align: center;
     font-size: 2rem;
     margin: auto;

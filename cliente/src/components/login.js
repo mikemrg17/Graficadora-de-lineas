@@ -86,7 +86,7 @@ class Login extends React.Component{
                 <div className="loginbox">
                     <img className="avatar" src={Avatar} />
                     <h3>Inicio de Sesión</h3>
-                    <form className="formInsertar" id="form" onSubmit={this.logUser}>
+                    <form className="formlogin" id="form" onSubmit={this.logUser}>
                         <p>Usuario</p>
                         <input type="text" name="email" id="email" placeholder="Correo electronico" className="form-control" onChange={e=>this.handleEmailChange(e.target.value)}/>
                         {errors.email && <P>{errors.email}</P>}

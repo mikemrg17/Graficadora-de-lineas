@@ -76,17 +76,25 @@ class AddEjercicio extends React.Component{
     render(){
         return (
             <div className="mainContainerR">
-                <h1 className="title">Nuevo Ejercicio</h1>
-                <button className="link" onClick={this.back}>Regresar</button>
-                <form className="formAddEjercicio" onSubmit={this.addEjercicio}>
-                    (<input type="number" name="x1" id="x1" placeholder="x1" className="formInput" onChange={e=>this.handleX1Change(e.target.value)}/>
-                    <input type="number" name="y1" id="y1" placeholder="y1" className="formInput" onChange={e=>this.handleY1Change(e.target.value)}/>),
-                    (<input type="number" name="x2" id="x2" placeholder="x2" className="formInput" onChange={e=>this.handleX2Change(e.target.value)}/>
-                    <input type="number" name="y2" id="y2" placeholder="y2" className="formInput" onChange={e=>this.handleY2Change(e.target.value)}/>)
-                    <div className="buttonDiv">
-                            <input type="Submit" className="button" value="Agregar Ejercicio"/>                                 
-                    </div>                    
-                </form>        
+                 <center>
+                    <header className="headerr">
+                        <div className="headerTitlee">Ejercicio</div>
+                            <button className="link" onClick={this.back}>
+                            Regresar
+                            </button>
+                    </header>
+                    <h1 className="title">Nuevo Ejercicio</h1>
+                    <button className="link" onClick={this.back}>Regresar</button>
+                    <form className="formAddEjercicio" onSubmit={this.addEjercicio}>
+                        (<input type="number" name="x1" id="x1" placeholder="x1" className="formInput" onChange={e=>this.handleX1Change(e.target.value)}/>
+                        <input type="number" name="y1" id="y1" placeholder="y1" className="formInput" onChange={e=>this.handleY1Change(e.target.value)}/>),
+                        (<input type="number" name="x2" id="x2" placeholder="x2" className="formInput" onChange={e=>this.handleX2Change(e.target.value)}/>
+                        <input type="number" name="y2" id="y2" placeholder="y2" className="formInput" onChange={e=>this.handleY2Change(e.target.value)}/>)
+                        <div className="buttonDiv">
+                                <input type="Submit" className="button" value="Agregar Ejercicio"/>                                 
+                        </div>                    
+                    </form>
+                </center>        
             </div>
         )
     }

@@ -9,7 +9,7 @@ const validate = values => {
     const errors = {}
     let regexEmail = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
     let regexPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\u00f1\u00d1\d]{8,}$/
-    let regexName = /^[a-z ,.'-]+$/
+    let regexName = /^[ÁÉÍÓÚA-Z][a-záéíóú]+(\s+[ÁÉÍÓÚA-Z]?[a-záéíóú]+)*$/
     if(!values.email) {
         errors.email = '↑ Campo obligatorio'
     } else if(!regexEmail.test(values.email)){ 
@@ -17,13 +17,13 @@ const validate = values => {
     }
     if(!values.nombre){
         errors.nombre = '↑ Campo obligatorio'
-    } else if(!regexEmail.test(values.nombre)){ 
-        errors.nombre = '↑ Introduce un nombre valido (No numeros)'
+    } else if(!regexName.test(values.nombre)){ 
+        errors.nombre = '↑ Introduce un nombre valido (Mayuscula al principio y no numeros)'
     }
     if(!values.apellido){
         errors.apellido = '↑ Campo obligatorio'
     } else if(!regexName.test(values.apellido)){ 
-        errors.apellido = '↑ Introduce un apellido valido (No numeros)'
+        errors.apellido = '↑ Introduce un apellido valido (Mayuscula al principio y no numeros)'
     }
     if(!values.password){
         errors.password = '↑ Campo obligatorio'
@@ -32,7 +32,6 @@ const validate = values => {
     }
     return errors;
 }
-
 
 class Registro extends React.Component{
 
@@ -44,35 +43,9 @@ class Registro extends React.Component{
         errors: {}
     }
 
-    validateRepeat = () => {
-        console.log("Objeto a pasar");
-        console.log(this.state);
-        axios.post("http://localhost:8080/GraficadoraDeLineas/InsertarUsuario",this.state)
-            .then(response => {
-                //console.log(`Objeto recibido: ${response.data}`);
-                let respuestaServer = response.data;
-                let cadenaSeparada = respuestaServer.split(",");
-                let idUsuario = cadenaSeparada[0];
-                console.log(`TIPO DE IDUSUARIO ES : ${typeof idUsuario}`); 
-                console.log(`IDUSUARIO ES : ${idUsuario}`);
-                history.push('/GraficadoraDeLineas/userMainPage');
-            })
-            .catch(error => {
-                    console.info(error);
-                    console.log("Ha ocurrido un error al obtener el email");
-            });
-    }
-
 
     addUser = e => {
         e.preventDefault();
-        validateRepeat();
-        /*if (this.state.email == "" && this.state.password == "") {
-            alert("Debes de llenar mínimo el campo de email y de contraseña");
-        }else if(this.state.email == "" || this.state.password == ""){
-            alert("Debes de llenar mínimo el campo de email y de contraseña");
-        } else {*/
-            //alert("Se insertará el usuario ");
         console.log("Objeto a pasar");
         console.log(this.state);
         const { errors, ...sinErrors} = this.state;
