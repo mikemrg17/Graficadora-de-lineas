@@ -61,7 +61,7 @@ class Registro extends React.Component{
                 let idUsuario = cadenaSeparada[0];
                 console.log(`TIPO DE IDUSUARIO ES : ${typeof idUsuario}`); 
                 console.log(`IDUSUARIO ES : ${idUsuario}`);
-                history.push('/GraficadoraDeLineas/userMainPage');
+                history.push(`/GraficadoraDeLineas/userMainPage?id=${idUsuario}`);
             })
             .catch(error => {
                     console.info(error);

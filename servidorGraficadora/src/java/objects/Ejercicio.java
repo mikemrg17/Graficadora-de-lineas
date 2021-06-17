@@ -11,14 +11,14 @@ package objects;
  */
 public class Ejercicio {
     private int idEjercicio;
-    private float x1 = 0.0f;
-    private float y1 = 0.0f;
-    private float x2 = 0.0f;
-    private float y2 = 0.0f;
+    private long x1 = 0;
+    private long y1 = 0;
+    private long x2 = 0;
+    private long y2 = 0;
 
-    public Ejercicio(float x1, float y1, float x2, float y2){
+    public Ejercicio(long x1, long y1, long x2, long y2){
         this.x1 = x1;
-        this.y1 = x1;
+        this.y1 = y1;
         this.x2 = x2;
         this.y2 = y2;
     }
@@ -27,35 +27,35 @@ public class Ejercicio {
         return idEjercicio;
     }
     
-    public float getX1() {
+    public long getX1() {
         return x1;
     }
 
-    public void setX1(float x1) {
+    public void setX1(long x1) {
         this.x1 = x1;
     }
 
-    public float getY1() {
+    public long getY1() {
         return y1;
     }
 
-    public void setY1(float y1) {
+    public void setY1(long y1) {
         this.y1 = y1;
     }
 
-    public float getX2() {
+    public long getX2() {
         return x2;
     }
 
-    public void setX2(float x2) {
+    public void setX2(long x2) {
         this.x2 = x2;
     }
 
-    public float getY2() {
+    public long getY2() {
         return y2;
     }
 
-    public void setY2(float y2) {
+    public void setY2(long y2) {
         this.y2 = y2;
     }
     

@@ -63,24 +63,24 @@ public class InsertarEjercicio extends HttpServlet {
         System.out.println("El id del usuario es: " + idUsuario);
         //Email
         long x1 = (long) jsonEjercicio.get("x1");
-        System.out.println("X1 es: " + x1);
+        //System.out.println("X1 es: " + x1);
         //Nombre
         long y1 = (long) jsonEjercicio.get("y1");
-        System.out.println("Y1 es: " + y1);
+        //System.out.println("Y1 es: " + y1);
         //Apellido
         long x2 = (long) jsonEjercicio.get("x2");
-        System.out.println("X2 es: " + x2);
+        //System.out.println("X2 es: " + x2);
         //Password
         long y2 = (long) jsonEjercicio.get("y2");
-        System.out.println("Y2 es: " + y2);
+        //System.out.println("Y2 es: " + y2);
         
         //Para objeto Ejercicio
-        /*float X1 = Float.parseFloat(x1);
-        float Y1 = Float.parseFloat(y1);
-        float X2 = Float.parseFloat(x2);
-        float Y2 = Float.parseFloat(y2);
-        Ejercicio ejercicioNuevo = new Ejercicio(X1, Y1, X2, Y2);
-        System.out.println("X1 ES: " + ejercicioNuevo.getX1());*/
+        Ejercicio ejercicioNuevo = new Ejercicio(x1, y1, x2, y2);
+        System.out.println("X1 ES: " + ejercicioNuevo.getX1());
+        System.out.println("X1 ES: " + ejercicioNuevo.getY1());
+        System.out.println("X1 ES: " + ejercicioNuevo.getX2());
+        System.out.println("X1 ES: " + ejercicioNuevo.getY2());
+        
         
         int row;
         try {
@@ -88,10 +88,10 @@ public class InsertarEjercicio extends HttpServlet {
             Class.forName("com.mysql.jdbc.Driver");
             Connection db = DriverManager.getConnection("jdbc:mysql://localhost/graficadoraDeLineas","miguel", "1234");
             PreparedStatement statement = db.prepareStatement("INSERT INTO ejercicios(x1,y1,x2,y2,idUsuario) VALUES(?,?,?,?,?)");
-            statement.setLong(1, x1);
-            statement.setLong(2, y1);
-            statement.setLong(3, x2);
-            statement.setLong(4, y2);
+            statement.setLong(1, ejercicioNuevo.getX1());
+            statement.setLong(2, ejercicioNuevo.getY1());
+            statement.setLong(3, ejercicioNuevo.getX2());
+            statement.setLong(4, ejercicioNuevo.getY2());
             statement.setInt(5, Integer.parseInt(idUsuario));
             row = statement.executeUpdate();
             System.out.println("Se insertó a la base de datos");

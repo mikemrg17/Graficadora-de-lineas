@@ -17,6 +17,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import objects.Usuario;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -72,6 +73,7 @@ public class InsertarUsuario extends HttpServlet {
         //Rol común
         int rol = 2;
         
+        Usuario nuevoUsuario = new Usuario(email, nombre, apellido, password, rol);
         
         int row;
         try {
@@ -79,11 +81,11 @@ public class InsertarUsuario extends HttpServlet {
             Class.forName("com.mysql.jdbc.Driver");
             Connection db = DriverManager.getConnection("jdbc:mysql://localhost/graficadoraDeLineas","miguel", "1234");
             PreparedStatement statement = db.prepareStatement("INSERT INTO usuarios(email,nombre,apellido,password,idRol) VALUES(?,?,?,?,?)");
-            statement.setString(1, email);
-            statement.setString(2, nombre);
-            statement.setString(3, apellido);
-            statement.setString(4, password);
-            statement.setInt(5, rol);
+            statement.setString(1, nuevoUsuario.getEmail());
+            statement.setString(2, nuevoUsuario.getNombre());
+            statement.setString(3, nuevoUsuario.getApellido());
+            statement.setString(4, nuevoUsuario.getPassword());
+            statement.setInt(5, nuevoUsuario.getRol());
             row = statement.executeUpdate();
             System.out.println("Se insertó a la base de datos");
             
