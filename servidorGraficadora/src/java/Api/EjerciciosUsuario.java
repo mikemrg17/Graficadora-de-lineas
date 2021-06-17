@@ -44,7 +44,7 @@ public class EjerciciosUsuario extends HttpServlet {
         try{
             int contador=0;
             Class.forName("com.mysql.jdbc.Driver");
-            Connection db = DriverManager.getConnection("jdbc:mysql://localhost/graficadoraDeLineas","miguel", "1234");
+            Connection db = DriverManager.getConnection("jdbc:mysql://localhost/graficadoraDeLineas","root", "1234");
             Statement s = db.createStatement();
             ResultSet rs=s.executeQuery("SELECT * FROM ejercicios WHERE idUsuario='"+idSolicitado+"' ORDER BY idEjercicio DESC;");
             

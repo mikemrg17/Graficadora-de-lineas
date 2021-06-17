@@ -138,7 +138,7 @@ public class IniciarSesion extends HttpServlet {
     public String validateUser (String emailToValidate, String passwordToValidate){
 
         String urlDB = "jdbc:mysql://localhost/graficadoraDeLineas";
-        String usernameDB = "miguel";
+        String usernameDB = "root";
         String passwordDB = "1234";
         String sqlquery = "select * from usuarios where email='" + emailToValidate + "' and " + "password='" + passwordToValidate + "'";
         String usuario = "";

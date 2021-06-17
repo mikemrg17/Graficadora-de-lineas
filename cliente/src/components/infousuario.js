@@ -1,7 +1,9 @@
 import React from "react";
-import { Button, Container } from "react-bootstrap";
+import { Button, Container, Table, Alert } from "react-bootstrap";
 import axios from "axios";
 import Despinfo from "./despinfo";
+import "../styles/adminMainPage.css";
+import history from "./history";
 
 class Infousuario extends React.Component {
   state = {
@@ -28,28 +30,48 @@ class Infousuario extends React.Component {
       console.log("No se recibió el parámetro de id");
     }
   }
+  back = (e) => {
+    history.goBack();
+  };
 
   render() {
     const { data } = this.state;
     return (
-      <div className="mainContainerR">
-        <div className="headerUserMainPage">Información de los usuarios</div>
-        <table striped bordered>
-          <thead>
-            <tr>
-              <th>Id</th>
-              <th>Email</th>
-              <th>Nombre</th>
-              <th>Apellido</th>
-              <th>Password</th>
-            </tr>
-          </thead>
-          <tbody>
-            {data.map((nombre) => {
-              return <Despinfo {...nombre} />;
-            })}
-          </tbody>
-        </table>
+      <div className="mainCoontainer">
+        <div className="head">
+          <h1>Welcome: Admin</h1>
+        </div>
+        <center>
+          <div className="titlee">
+            <h1>Información del usuario</h1>
+          </div>
+          <Table
+            striped
+            bordered
+            hover
+            variant="dark"
+            responsive
+            className="tableUsuarios"
+          >
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>Email</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Password</th>
+              </tr>
+            </thead>
+            <tbody>
+              {data.map((nombre) => {
+                return <Despinfo {...nombre} />;
+              })}
+            </tbody>
+          </Table>
+          <Button className="linkk" onClick={this.back}>
+            Regresar
+          </Button>
+        </center>
       </div>
     );
   }

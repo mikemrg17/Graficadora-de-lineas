@@ -1,11 +1,12 @@
 import React from "react";
-import { Button } from "react-bootstrap";
+import { Button, Container, Table, Alert } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import history from './history';
+import history from "./history";
 
 const Usuario = ({ idUsuario, nombre }) => {
   const handleClickEliminar = (event) => {
+    <Alert></Alert>
     var r = confirm("¿Estas seguro de eliminar este usuario?");
     if (r == true) {
       axios

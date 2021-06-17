@@ -3,6 +3,7 @@ import { Button, Container, Table, Alert } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Usuario from "./usuario";
+import "../styles/adminMainPage.css";
 class AdminMainPage extends React.Component {
   state = {
     id: "",
@@ -31,22 +32,35 @@ class AdminMainPage extends React.Component {
   render() {
     const { data } = this.state;
     return (
-      <div className="mainContainerR">
-        <div className="headerUserMainPage">Welcome: admin</div>
-        <div className="contentUserMainPage"></div>
-        <Table striped bordered>
-          <thead>
-            <tr>
-              <th>Usuario</th>
-              <th>Acciones</th>
-            </tr>
-          </thead>
-          <tbody>
-            {data.map((nombre) => {
-              return <Usuario {...nombre} />;
-            })}
-          </tbody>
-        </Table>
+      <div className="mainCoontainer">
+        <div className="head">
+          <h1>Welcome: Admin</h1>
+        </div>
+        <div><br></br></div>
+        <center>
+          <div>
+            <Table
+              striped
+              bordered
+              hover
+              variant="dark"
+              responsive
+              className="tableUsuarios"
+            >
+              <thead>
+                <tr>
+                  <th>Usuario</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                {data.map((nombre) => {
+                  return <Usuario {...nombre} />;
+                })}
+              </tbody>
+            </Table>
+          </div>
+        </center>
       </div>
     );
   }
