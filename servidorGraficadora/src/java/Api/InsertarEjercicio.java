@@ -17,6 +17,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import objects.Ejercicio;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -61,28 +62,36 @@ public class InsertarEjercicio extends HttpServlet {
         String idUsuario = (String) jsonEjercicio.get("id");
         System.out.println("El id del usuario es: " + idUsuario);
         //Email
-        String x1 = (String) jsonEjercicio.get("x1");
+        long x1 = (long) jsonEjercicio.get("x1");
         System.out.println("X1 es: " + x1);
         //Nombre
-        String y1 = (String) jsonEjercicio.get("y1");
+        long y1 = (long) jsonEjercicio.get("y1");
         System.out.println("Y1 es: " + y1);
         //Apellido
-        String x2 = (String) jsonEjercicio.get("x2");
+        long x2 = (long) jsonEjercicio.get("x2");
         System.out.println("X2 es: " + x2);
         //Password
-        String y2 = (String) jsonEjercicio.get("y2");
+        long y2 = (long) jsonEjercicio.get("y2");
         System.out.println("Y2 es: " + y2);
+        
+        //Para objeto Ejercicio
+        /*float X1 = Float.parseFloat(x1);
+        float Y1 = Float.parseFloat(y1);
+        float X2 = Float.parseFloat(x2);
+        float Y2 = Float.parseFloat(y2);
+        Ejercicio ejercicioNuevo = new Ejercicio(X1, Y1, X2, Y2);
+        System.out.println("X1 ES: " + ejercicioNuevo.getX1());*/
         
         int row;
         try {
             int contador=0;
             Class.forName("com.mysql.jdbc.Driver");
-            Connection db = DriverManager.getConnection("jdbc:mysql://localhost/graficadoraDeLineas","root", "1234");
+            Connection db = DriverManager.getConnection("jdbc:mysql://localhost/graficadoraDeLineas","miguel", "1234");
             PreparedStatement statement = db.prepareStatement("INSERT INTO ejercicios(x1,y1,x2,y2,idUsuario) VALUES(?,?,?,?,?)");
-            statement.setFloat(1, Float.parseFloat(x1));
-            statement.setFloat(2, Float.parseFloat(y1));
-            statement.setFloat(3, Float.parseFloat(x2));
-            statement.setFloat(4, Float.parseFloat(y2));
+            statement.setLong(1, x1);
+            statement.setLong(2, y1);
+            statement.setLong(3, x2);
+            statement.setLong(4, y2);
             statement.setInt(5, Integer.parseInt(idUsuario));
             row = statement.executeUpdate();
             System.out.println("Se insertó a la base de datos");

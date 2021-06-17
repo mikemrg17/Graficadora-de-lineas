@@ -5,11 +5,11 @@ import history from "./history";
 
 class EditEjercicio extends React.Component {
   state = {
-    idEjercicio: "",
-    y1: "",
-    x1: "",
-    y2: "",
-    x2: "",
+    idEjercicio: Number,
+    y1: Number,
+    x1: Number,
+    y2: Number,
+    x2: Number,
   };
 
   back = (e) => {
@@ -66,6 +66,7 @@ class EditEjercicio extends React.Component {
 
   handleX1Change = (value) => {
     value ? console.log("Aceptado") : console.log("No aceptado");
+    value = parseFloat(value);
     this.setState(
       {
         x1: value,
@@ -76,6 +77,7 @@ class EditEjercicio extends React.Component {
 
   handleY1Change = (value) => {
     value ? console.log("Aceptado") : console.log("No aceptado");
+    value = parseFloat(value);
     this.setState(
       {
         y1: value,
@@ -85,6 +87,7 @@ class EditEjercicio extends React.Component {
   };
 
   handleX2Change = (value) => {
+    value = parseFloat(value);
     value ? console.log("Aceptado") : console.log("No aceptado");
     this.setState(
       {
@@ -96,6 +99,7 @@ class EditEjercicio extends React.Component {
 
   handleY2Change = (value) => {
     value ? console.log("Aceptado") : console.log("No aceptado");
+    value = parseFloat(value);
     this.setState(
       {
         y2: value,

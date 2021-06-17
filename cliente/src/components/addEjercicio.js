@@ -8,10 +8,10 @@ class AddEjercicio extends React.Component{
 
     state = {
         id: "",
-        x1: "0",
-        y1: "0",
-        x2: "1",
-        y2: "1"
+        x1: 0,
+        y1: 0,
+        x2: 1,
+        y2: 1
     }
 
     back = e => {
@@ -47,6 +47,7 @@ class AddEjercicio extends React.Component{
 
     handleX1Change = (value) => {
         value ? console.log("Aceptado") : console.log("No aceptado");
+        value = parseFloat(value);
         this.setState({
             x1: value
         },console.log(this.state.x1));
@@ -54,6 +55,7 @@ class AddEjercicio extends React.Component{
 
     handleY1Change = (value) =>{
         value ? console.log("Aceptado") : console.log("No aceptado");
+        value = parseFloat(value);
         this.setState({
             y1: value
         },console.log(this.state.y1));
@@ -61,6 +63,7 @@ class AddEjercicio extends React.Component{
 
     handleX2Change = (value) => {
         value ? console.log("Aceptado") : console.log("No aceptado");
+        value = parseFloat(value);
         this.setState({
             x2: value
         },console.log(this.state.x2));
@@ -68,6 +71,7 @@ class AddEjercicio extends React.Component{
 
     handleY2Change = (value) => {
         value ? console.log("Aceptado") : console.log("No aceptado");
+        value = parseFloat(value);
         this.setState({
             y2: value
         },console.log(this.state.y2));

@@ -59,28 +59,28 @@ public class EditarEjercicio extends HttpServlet {
         long idEjercicio = (long) jsonEjercicio.get("idEjercicio");
         System.out.println("El idUsuario es: " + idEjercicio);
         //x1
-        String x1 = (String) jsonEjercicio.get("x1");
+        long x1 = (long) jsonEjercicio.get("x1");
         System.out.println("El x1 es: " + x1);
         //Nombre
-        String y1 = (String) jsonEjercicio.get("y1");
+        long y1 = (long) jsonEjercicio.get("y1");
         System.out.println("El y1 es: " + y1);
         //Apellido
-        String x2 = (String) jsonEjercicio.get("x2");
+        long x2 = (long) jsonEjercicio.get("x2");
         System.out.println("El x2 es: " + x2);
         //Password
-        String y2 = (String) jsonEjercicio.get("y2");
+        long y2 = (long) jsonEjercicio.get("y2");
         System.out.println("El y2 es: " + y2);
         
         int row;
         try {
             int contador=0;
             Class.forName("com.mysql.jdbc.Driver");
-            Connection db = DriverManager.getConnection("jdbc:mysql://localhost/graficadoraDeLineas","root", "1234");
+            Connection db = DriverManager.getConnection("jdbc:mysql://localhost/graficadoraDeLineas","miguel", "1234");
                 PreparedStatement statement = db.prepareStatement("UPDATE ejercicios SET x1=?, y1=?, x2=?, y2=? WHERE idEjercicio='"+idEjercicio+"'");
-            statement.setFloat(1, Float.parseFloat(x1));
-            statement.setFloat(2, Float.parseFloat(y1));
-            statement.setFloat(3, Float.parseFloat(x2));
-            statement.setFloat(4, Float.parseFloat(y2));
+            statement.setLong(1, x1);
+            statement.setLong(2, y1);
+            statement.setLong(3, x2);
+            statement.setLong(4, y2);
             row = statement.executeUpdate();
             System.out.println("Se modifico en la base de datos");
             
