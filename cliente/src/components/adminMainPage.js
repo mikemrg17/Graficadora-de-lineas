@@ -3,6 +3,7 @@ import { Button, Container, Table, Alert } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Usuario from "./usuario";
+import history from "./history";
 import "../styles/adminMainPage.css";
 class AdminMainPage extends React.Component {
   state = {
@@ -36,7 +37,9 @@ class AdminMainPage extends React.Component {
         <div className="head">
           <h1>Welcome: Admin</h1>
         </div>
-        <div><br></br></div>
+        <div>
+          <br></br>
+        </div>
         <center>
           <div>
             <Table
@@ -60,6 +63,11 @@ class AdminMainPage extends React.Component {
               </tbody>
             </Table>
           </div>
+          <Button className="linkk">
+            <Link to={`/GraficadoraDeLineas/`} className="CustomLink">
+              Home
+            </Link>
+          </Button>
         </center>
       </div>
     );
