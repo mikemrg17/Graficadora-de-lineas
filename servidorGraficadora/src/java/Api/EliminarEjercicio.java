@@ -1,9 +1,6 @@
 package Api;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -40,18 +37,13 @@ public class EliminarEjercicio extends HttpServlet {
             Class.forName("com.mysql.jdbc.Driver");
             Connection db = DriverManager.getConnection("jdbc:mysql://localhost/graficadoraDeLineas","miguel", "1234");
             Statement s = db.createStatement();
-            //ResultSet rs = s.executeQuery("SELECT JSON_ARRAYAGG(JSON_OBJECT('idEjercicio', idEjercicio, 'x1', x1, 'y1', y1, 'x2', x2, 'y2', y2)) AS jsonE FROM ejercicios WHERE idUsuario = '"+idSolicitado+"';");
             ResultSet rs=s.executeQuery("SELECT idUsuario FROM ejercicios WHERE idEjercicio='"+id+"';");
-            
-            //JSONObject jsonObject = new JSONObject();
             
             String idUsuarioEliminado;
             while(rs.next()){
                 idUsuarioEliminado = rs.getString("idUsuario");
                 json.append(idUsuarioEliminado);
             }
-            
-            
             
             PreparedStatement statement = db.prepareStatement("DELETE FROM ejercicios WHERE idEjercicio = ?");
             statement.setString(1, id);

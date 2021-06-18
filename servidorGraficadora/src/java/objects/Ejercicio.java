@@ -9,6 +9,8 @@ package objects;
  *
  * @author miguel
  */
+
+//Clase Ejercicio para poder crear objetos de tipo Ejercicio
 public class Ejercicio {
     private int idEjercicio;
     private long x1 = 0;

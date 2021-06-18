@@ -8,7 +8,6 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -118,7 +117,7 @@ public class ValidarEmailRepetido extends HttpServlet {
         return body;
     }
 
-
+    //Función para validar que el email de la cuenta a registrar no esté en uso por otra cuenta
     public String validateUser (String emailToValidate){
 
         String urlDB = "jdbc:mysql://localhost/graficadoraDeLineas";
@@ -137,8 +136,6 @@ public class ValidarEmailRepetido extends HttpServlet {
                 booleano = "true";
                 usuario = booleano;
             }          
-            //System.out.println("Usuario " + rs.getString(2) + " encontrado!");
-            //db.close();
             System.out.println("El usuario en validateUser es:" + usuario);
             return usuario;
         }catch(SQLException e){

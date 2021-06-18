@@ -9,6 +9,8 @@ package objects;
  *
  * @author miguel
  */
+
+//Clase creada para poder crear objetos de tipo Usuario y poder guardar la información recibida por el front end en un objeto
 public class Usuario {
     
     private String email = "";

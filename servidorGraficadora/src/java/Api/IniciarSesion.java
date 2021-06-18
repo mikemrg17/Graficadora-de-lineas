@@ -7,7 +7,6 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.sql.SQLException;
@@ -134,7 +133,7 @@ public class IniciarSesion extends HttpServlet {
         return body;
     }
 
-
+    //Función para poder validar que el usuario exista en la base de datos
     public String validateUser (String emailToValidate, String passwordToValidate){
 
         String urlDB = "jdbc:mysql://localhost/graficadoraDeLineas";
@@ -154,8 +153,7 @@ public class IniciarSesion extends HttpServlet {
                 int rolUsuario = rs.getInt("idRol");
                 booleano = "true";
                 usuario = idUsuario + "," + rolUsuario + "," + booleano;
-            }          
-            //System.out.println("Usuario " + rs.getString(2) + " encontrado!");
+            }
             db.close();
             System.out.println("El usuario en validateUser es:" + usuario);
             return usuario;

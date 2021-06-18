@@ -9,10 +9,6 @@ import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -52,7 +48,7 @@ public class EditarEjercicio extends HttpServlet {
         try {
             jsonEjercicio = (JSONObject) parser.parse(payloadRequest);
         } catch (ParseException ex) {
-            //Logger.getLogger(EditarUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
         }
         System.out.println("Objeto JSON es: " + jsonEjercicio);
         //idUsuario
@@ -91,6 +87,7 @@ public class EditarEjercicio extends HttpServlet {
         out.write(json.toString());
     }
     
+    //Método para obtener el cuerpo del request
     public static String getBody(HttpServletRequest request) throws IOException {
 
     String body = null;

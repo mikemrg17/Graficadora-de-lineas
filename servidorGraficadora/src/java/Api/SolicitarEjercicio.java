@@ -8,19 +8,14 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 
 /**
  *
@@ -46,11 +41,7 @@ public class SolicitarEjercicio extends HttpServlet {
             Class.forName("com.mysql.jdbc.Driver");
             Connection db = DriverManager.getConnection("jdbc:mysql://localhost/graficadoraDeLineas","miguel", "1234");
             Statement s = db.createStatement();
-            //ResultSet rs = s.executeQuery("SELECT JSON_ARRAYAGG(JSON_OBJECT('idEjercicio', idEjercicio, 'x1', x1, 'y1', y1, 'x2', x2, 'y2', y2)) AS jsonE FROM ejercicios WHERE idUsuario = '"+idSolicitado+"';");
             ResultSet rs=s.executeQuery("SELECT * FROM ejercicios WHERE idEjercicio='"+idEjercicio+"';");
-            
-            //JSONObject jsonObject = new JSONObject();
-            
             
             while(rs.next()){
                 JSONObject ejercicioJson = new JSONObject();
@@ -60,8 +51,6 @@ public class SolicitarEjercicio extends HttpServlet {
                 ejercicioJson.put("x2", rs.getFloat("x2"));
                 ejercicioJson.put("y2", rs.getFloat("y2"));
                 array.add(ejercicioJson);
-                //String jsonRes=rs.getString("jsonE");
-                //json.append(jsonRes);
             }
             
             System.out.println("El objeto json de ejercicios a enviar es: " + array.toString());
