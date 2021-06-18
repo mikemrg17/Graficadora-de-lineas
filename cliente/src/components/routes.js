@@ -8,11 +8,11 @@ import AdminMainPage from "./adminMainPage";
 import AddEjercicio from "./addEjercicio";
 import Infousuario from "./infousuario";
 import Editusuario from "./editusuario";
-//import Canvas from './canvas';
 import ProbarEjercicio from "./probarEjercicio";
 import Redirecting from './redirecting';
 import EditEjercicio from './editEjercicio';
 
+//Componente que nos sirve para poder definir las rutas de la aplicación web
 const App = () => {
     return (
             <div>

@@ -1,10 +1,13 @@
 import React from "react";
-import { Button, Container, Table, Alert } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import history from "./history";
 
+//Componente funcional para obtener la información de cada usuario
 const Usuario = ({ idUsuario, nombre }) => {
+
+  //Función para eliminar el usuario a través de una petición HTTP POST al servidor
   const handleClickEliminar = (event) => {
     var r = confirm("¿Estas seguro de eliminar este usuario?");
     if (r == true) {
@@ -24,6 +27,8 @@ const Usuario = ({ idUsuario, nombre }) => {
         });
     }
   };
+
+  //Función return para poder imprimir el registro del usuario
   return (
     <tr>
       <td>{nombre}</td>

@@ -3,7 +3,10 @@ import "../styles/editEjercicio.css";
 import axios from "axios";
 import history from "./history";
 
+//Componente para poder editar ejercicio
 class EditEjercicio extends React.Component {
+
+  //Tendremos un estado para guardar la nueva información
   state = {
     idEjercicio: Number,
     y1: Number,
@@ -12,10 +15,12 @@ class EditEjercicio extends React.Component {
     x2: Number,
   };
 
+  //Función para volver a la página anterior
   back = (e) => {
     history.goBack();
   };
 
+  //Función principal para poder editar el ejercicio, cuenta con una petición HTTP POST para enviar los datos nuevos
   editEjercicio = (e) => {
     e.preventDefault();
 
@@ -41,6 +46,7 @@ class EditEjercicio extends React.Component {
     }
   };
 
+  //Cumpliendo con el ciclo de vida del componente tendremos esta función para obtener el ejercicio a editar
   componentDidMount() {
     const qId = new URLSearchParams(window.location.search).get("idEjercicio");
     this.setState({ idEjercicio: qId });
@@ -63,7 +69,7 @@ class EditEjercicio extends React.Component {
       console.log("No se recibió el parámetro de id");
     }
   }
-
+  //Handlers para poder modificar los datos del estado
   handleX1Change = (value) => {
     value ? console.log("Aceptado") : console.log("No aceptado");
     value = parseFloat(value);
@@ -108,6 +114,7 @@ class EditEjercicio extends React.Component {
     );
   };
 
+  //Método render para poder imprimir la interfaz
   render() {
     return (
       <div className="mainContainerR">

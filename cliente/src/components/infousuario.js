@@ -1,10 +1,11 @@
 import React from "react";
-import { Button, Container, Table, Alert } from "react-bootstrap";
+import { Table } from "react-bootstrap";
 import axios from "axios";
 import Despinfo from "./despinfo";
 import "../styles/adminMainPage.css";
 import history from "./history";
 
+//Componenete para obtener la información de cada usuario a través de una petición HTTP GET
 class Infousuario extends React.Component {
   state = {
     id: "",
@@ -30,10 +31,13 @@ class Infousuario extends React.Component {
       console.log("No se recibió el parámetro de id");
     }
   }
+
+  //Función para poder ir a la página anterior
   back = (e) => {
     history.goBack();
   };
 
+  //Función para poder imprimir la interfaz de usuario
   render() {
     const { data } = this.state;
     return (

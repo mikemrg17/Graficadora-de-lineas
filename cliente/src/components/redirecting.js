@@ -1,13 +1,15 @@
 import React from 'react';
 import history from './history';
 
-
+//Componente que sirve de soporte para el redireccionamiento cuando se trate de volver a la misma página
 class Redirecting extends React.Component{
 
+    //Estado que obtiene el id para mantener la sesión de usuario
     state = {
         id: ""
     }
 
+    //Función del ciclo de vida del componente para obtener el id del usuario en sesión
     componentDidMount() {
         const qId = new URLSearchParams(window.location.search).get("id");
         this.setState({id: qId});
@@ -19,6 +21,7 @@ class Redirecting extends React.Component{
         }
     }
 
+    //Función render solo para escribir redireccionando
     render(){
         return (
             <div>

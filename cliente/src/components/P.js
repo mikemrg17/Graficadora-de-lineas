@@ -1,5 +1,6 @@
 import React from 'react';
 
+//Componente para separar las etiquetas <p> para escribir los errores de validación
 class P extends React.Component {
     render () {
         return(

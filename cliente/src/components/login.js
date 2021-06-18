@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import P from './P';
 import history from './history';
 
+//Función para validar el usuario
 const validate = values => {
     const errors = {}
     if(!values.email){
@@ -17,14 +18,17 @@ const validate = values => {
     return errors;
 }
 
+//Componente para poder imprimir el login
 class Login extends React.Component{
 
+    //Estado para poder obtener los datos del usuario a iniciar sesión
     state = {
         email: "",
         password: "",
         errors: {}
     }
 
+    //Función principal para poder iniciar sesión a través de mandar los datos al servidor a que nos de permiso
     logUser = e => {
         e.preventDefault();
         console.log("Objeto a pasar");
@@ -63,6 +67,7 @@ class Login extends React.Component{
         
     }
 
+    //handlers para capturar los datos de los inputs
     handleEmailChange = (value) => {
         value ? console.log("Aceptado") : console.log("No aceptado");
         this.setState({
@@ -78,7 +83,7 @@ class Login extends React.Component{
     }
 
 
-
+    //Método render para imprimir la interfaz del login
     render(){ 
         const { errors } = this.state
         return (

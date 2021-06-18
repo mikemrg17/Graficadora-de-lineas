@@ -5,11 +5,12 @@ import axios from "axios";
 import "../styles/ejercicio.css";
 import history from "./history";
 
+//Componente que obtiene los valores de cada ejercicio para poder agregarlo a la tabla
 const Ejercicio = ({ idEjercicio, x1, y1, x2, y2 }) => {
   let idUsuario;
 
+  //Función para elimianr el ejercicio con una petición HTTP POST
   const handleClickEliminar = (event) => {
-    //Eliminar
     var r = confirm("¿Estas seguro de eliminar este ejercicio?");
     if (r == true) {
       axios
@@ -31,6 +32,7 @@ const Ejercicio = ({ idEjercicio, x1, y1, x2, y2 }) => {
     }
   };
 
+  //Función para poder imprimir la interfaz de usuario
   return (
     <tr>
       <td>{x1}</td>

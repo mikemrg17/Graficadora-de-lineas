@@ -3,6 +3,7 @@ import '../styles/home.css';
 import { Link } from 'react-router-dom';
 import Ecuacionrecta from '../images/Ecuación_recta.jpg'
 
+//Componente para poder imprimir la pantalla de inicio del sistema
 const Home = () => {
     return (
         <div className="home-container">

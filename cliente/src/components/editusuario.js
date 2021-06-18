@@ -6,6 +6,7 @@ import history from "./history";
 import "../styles/adminMainPage.css";
 import P from './P';
 
+//Expresiones regulares para poder validar el editar usuario
 const validate = values => {
   const errors = {}
   let regexEmail = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
@@ -34,6 +35,7 @@ const validate = values => {
   return errors;
 }
 
+//Componente para editar el usuario
 class Editusuario extends React.Component {
   state = {
     idUsuario: "",
@@ -44,6 +46,7 @@ class Editusuario extends React.Component {
     errors: {}
   };
 
+  //Función para poder obtener el id del usuario y obtener su información
   componentDidMount() {
     const qId = new URLSearchParams(window.location.search).get("id");
     this.setState({ idUsuario: qId });
@@ -65,6 +68,8 @@ class Editusuario extends React.Component {
       console.log("No se recibió el parámetro de id");
     }
   }
+
+  //Handlers para poder cambia el estado de valor
   EmailChange = (value) => {
     value ? console.log("Aceptado") : console.log("No aceptado");
     this.setState(
@@ -103,6 +108,7 @@ class Editusuario extends React.Component {
     );
   };
 
+  //Función principal para poder editar el usuario a través de una petición HTTP POST
   Editarusuario = (e) => {
     e.preventDefault();
     alert("Se editarán los cambios");
@@ -124,10 +130,13 @@ class Editusuario extends React.Component {
         });
     }
   }
+
+  //Función para volver a la página anterior
     back = (e) => {
       history.goBack();
     };
-
+  
+  //Función render para poder imprimir la interfaz del usuario
   render() {
     const { errors } = this.state;
     return (

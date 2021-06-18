@@ -5,6 +5,7 @@ import SignUpIcon from '../images/signUp.png';
 import P from './P';
 import history from './history';
 
+//Expresiones regulares para la validación del registro de usuario
 const validate = values => {
     const errors = {}
     let regexEmail = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
@@ -33,8 +34,10 @@ const validate = values => {
     return errors;
 }
 
+//Componente que nos sirve para poder registrar a un nuevo usuario
 class Registro extends React.Component{
 
+    //Estado para poder guardar la información del nuevo usuario
     state = {
         email: "",
         nombre: "",
@@ -43,7 +46,7 @@ class Registro extends React.Component{
         errors: {}
     }
 
-
+    //Función principal que envía los datos a registrar en la base de datos a travésde una petición HTTP POST
     addUser = e => {
         e.preventDefault();
         console.log("Objeto a pasar");
@@ -70,6 +73,7 @@ class Registro extends React.Component{
         } 
     }
 
+    //Handlers para poder capturar los datos del formulario
     handleEmailChange = (value) => {
         value ? console.log("Aceptado") : console.log("No aceptado");
         this.setState({
@@ -98,6 +102,7 @@ class Registro extends React.Component{
         },console.log(this.state.password));
     }
 
+    //Función render para imprimir el formulario de registro
     render(){
         const { errors } = this.state;
         return (

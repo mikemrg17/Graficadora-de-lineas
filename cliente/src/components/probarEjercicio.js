@@ -4,15 +4,20 @@ import Canvas from "./canvas";
 import axios from "axios";
 import history from "./history";
 
+//Componente para poder probar el ejercicio, también para mostrar la gráfica
 class ProbarEjercicio extends React.Component {
+  
+  //Estado de los datos del ejercicio
   state = {
     ejercicio: [],
   };
 
+  //Función para volver a la página anterior
   back = (e) => {
     history.goBack();
   };
 
+  //Función del ciclo de vida del componente para poder obtener la información a través del id del ejercicio
   componentDidMount() {
     const qId = new URLSearchParams(window.location.search).get("idEjercicio");
     this.setState({ idEjercicio: qId });
@@ -36,6 +41,7 @@ class ProbarEjercicio extends React.Component {
     }
   }
 
+  //Función render para imprimir la interfaz de usuario
   render() {
     const { ejercicio } = this.state;
     return (

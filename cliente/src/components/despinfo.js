@@ -1,8 +1,6 @@
 import React from "react";
-import { Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import axios from "axios";
 
+//Componente para poder mostrar los datos del usuario
 const Despinfo = ({ idUsuario, email, nombre, apellido, password }) => {
   return (
     <tr>
